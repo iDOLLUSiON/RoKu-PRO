@@ -19,7 +19,7 @@ namespace Practice_Github_XNA_Game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Texture2D mouseIcon, bomb, shuriken;//2d images
+        Texture2D mouseIcon, bomb, shuriken, explosion;//2d images
         SpriteFont gameFont;//font
         Rectangle mouseIconRect, bombRect, shurikenRect;//rectangles for basic collision and shit
         int screenWidth, screenHeight;
@@ -77,8 +77,18 @@ namespace Practice_Github_XNA_Game
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+
+        //Variables
+        protected int bombTimer =0;
+        protected int bombLimit = 50;
+        protected bool bombExploded = false;
+
         protected override void Update(GameTime gameTime)
         {
+            var mouseState = Mouse.GetState();
+            var mousePosition = new Point(mouseState.X, mouseState.Y);
+
+
             // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) this.Exit();//exits game when space key is pressed
             //im sure theres a more efficient way of doing this i just dont know how atm
@@ -102,6 +112,31 @@ namespace Practice_Github_XNA_Game
             if (bombRect.Y < 0) bombRect.Y = 0;
             if (bombRect.X + bomb.Width > screenWidth) bombRect.X = screenWidth - bomb.Width;
             if (bombRect.Y + bomb.Height > screenHeight) bombRect.Y = screenHeight - bomb.Height;
+            
+            if (bombExploded)
+            {
+             bomb = Content.Load<Texture2D>("sprites/explosion");
+            bombTimer++;
+                if (bombTimer > bombLimit)
+    {
+        bombExploded = false;
+        bombTimer = 0;
+    }   
+}
+else
+{
+bomb =Content.Load<Texture2D>("sprites/bomb");
+}
+            if(bombRect.Contains(mousePosition))
+    {
+       if (mouseState.LeftButton == ButtonState.Pressed) {
+
+        bombExploded = true;
+        bombTimer = 0;
+        }
+    }
+
+
 
             base.Update(gameTime);
         }
