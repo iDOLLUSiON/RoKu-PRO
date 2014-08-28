@@ -1,0 +1,11 @@
+Main (RoKu-PRO): folders not capitalized
+	.git - dont touch
+	data - dialog files, events, etc
+	resources - images, sounds etc
+		Images - use .png
+			
+		Sounds - use .mp3
+			BGM
+			EVENT
+	src - compiled code, exempted from repo to save space
+	
