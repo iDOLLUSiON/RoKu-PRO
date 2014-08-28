@@ -8,4 +8,6 @@ Main (RoKu-PRO): folders not capitalized
 			BGM
 			EVENT
 	src - compiled code, exempted from repo to save space
+
+Open the (.sln) to open the project.
 	
