@@ -21,7 +21,7 @@ namespace Practice_Github_XNA_Game
 
         Texture2D mouseIcon, bomb, shuriken, explosion;//2d images
         SpriteFont gameFont;//font
-        Rectangle mouseIconRect, bombRect, shurikenRect, explosionRect;//rectangles for basic collision and shit
+        Rectangle mouseIconRect, bombRect, shurikenRect;//rectangles for basic collision and shit
         int screenWidth, screenHeight;
         bool boom;
         protected int bombTimer = 0;
@@ -154,13 +154,13 @@ namespace Practice_Github_XNA_Game
 
             spriteBatch.Begin();
             spriteBatch.Draw(mouseIcon, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
-            if (boom)
+            if (boom)//is true when intersects
             {
-                spriteBatch.Draw(explosion, bombRect, Color.White);
+                spriteBatch.Draw(explosion, new Vector2(bombRect.X - (bomb.Width / 2), bombRect.Y - (bomb.Height / 2)), Color.White);//draw explosion
             }
             else
             {
-                spriteBatch.Draw(bomb, bombRect, Color.White);
+                spriteBatch.Draw(bomb, bombRect, Color.White);//else draw bomb
             }
             spriteBatch.Draw(shuriken, shurikenRect, Color.White);
             spriteBatch.End();
