@@ -24,9 +24,6 @@ namespace Practice_Github_XNA_Game
         Rectangle mouseIconRect, bombRect, shurikenRect, blockRect, collisionRect;//rectangles for basic collision and shit
         int screenWidth, screenHeight;
         bool boom;
-        protected int bombTimer = 0;
-        protected int bombLimit = 50;
-        protected bool bombExploded = false;
 
         public Game1()
         {
@@ -85,22 +82,25 @@ namespace Practice_Github_XNA_Game
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
     
-    //I guess ill stick variables here then
-    protected int shurShiftX = 0;
-    protected int shurShiftY = 0;
-    protected int bombShiftX = 0;
-    protected int bombShiftY = 0;
+        //I guess ill stick variables here then
+        protected int bombTimer = 0;
+        protected int bombLimit = 50;
+        protected bool bombExploded = false;
+        protected int shurShiftX = 0;
+        protected int shurShiftY = 0;
+        protected int bombShiftX = 0;
+        protected int bombShiftY = 0;
 
     // and methods here
-    public bool  testCollision(Rectangle rect1, Rectangle rect2)
-{
-    if (rect1.Intersects(rect2))
-     {
-    return true;
-     }
-    else
-    return false;
-}
+        public bool  testCollision(Rectangle rect1, Rectangle rect2)
+        {
+            if (rect1.Intersects(rect2))
+            {
+                return true;
+            }
+            else
+                return false;
+        }
           
         protected override void Update(GameTime gameTime)
         {
