@@ -81,16 +81,27 @@ namespace Practice_Github_XNA_Game
         {
             // Allows the game to exit
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) this.Exit();//exits game when space key is pressed
-
+            //im sure theres a more efficient way of doing this i just dont know how atm
+            //keyboard controls for the shuriken
             if (Keyboard.GetState().IsKeyDown(Keys.Right)) shurikenRect.X += 10;
             if (Keyboard.GetState().IsKeyDown(Keys.Left)) shurikenRect.X -= 10;
             if (Keyboard.GetState().IsKeyDown(Keys.Up)) shurikenRect.Y -= 10;
             if (Keyboard.GetState().IsKeyDown(Keys.Down)) shurikenRect.Y += 10;
-
+            //keyboard controls for the bomb
             if (Keyboard.GetState().IsKeyDown(Keys.D)) bombRect.X += 10;
             if (Keyboard.GetState().IsKeyDown(Keys.A)) bombRect.X -= 10;
             if (Keyboard.GetState().IsKeyDown(Keys.W)) bombRect.Y -= 10;
             if (Keyboard.GetState().IsKeyDown(Keys.S)) bombRect.Y += 10;
+            //screen bounds collision for shuriken
+            if (shurikenRect.X < 0) shurikenRect.X = 0;
+            if (shurikenRect.Y < 0) shurikenRect.Y = 0;
+            if (shurikenRect.X + shuriken.Width > screenWidth) shurikenRect.X = screenWidth - shuriken.Width;
+            if (shurikenRect.Y + shuriken.Height > screenHeight) shurikenRect.Y = screenHeight - shuriken.Height;
+            //screen bounds collision for bomb
+            if (bombRect.X < 0) bombRect.X = 0;
+            if (bombRect.Y < 0) bombRect.Y = 0;
+            if (bombRect.X + bomb.Width > screenWidth) bombRect.X = screenWidth - bomb.Width;
+            if (bombRect.Y + bomb.Height > screenHeight) bombRect.Y = screenHeight - bomb.Height;
 
             base.Update(gameTime);
         }
