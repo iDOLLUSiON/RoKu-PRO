@@ -1,0 +1,9 @@
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Content\sprites\bomb.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Content\sprites\mouseIcon.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Content\sprites\shuriken.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Content\fonts\gameFont.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Practice Github XNA Game.exe
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Practice Github XNA Game.pdb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\obj\x86\Debug\Practice Github XNA Game.exe
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\obj\x86\Debug\Practice Github XNA Game.pdb

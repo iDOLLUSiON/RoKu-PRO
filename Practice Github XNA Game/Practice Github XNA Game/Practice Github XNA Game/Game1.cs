@@ -19,6 +19,11 @@ namespace Practice_Github_XNA_Game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Texture2D mouseIcon, bomb, shuriken;//2d images
+        SpriteFont gameFont;//font
+        Rectangle mouseIconRect, bombRect, shurikenRect;//rectangles for basic collision and shit
+        int screenWidth, screenHeight;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -33,8 +38,8 @@ namespace Practice_Github_XNA_Game
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            screenWidth = GraphicsDevice.Viewport.Width;//game screen width
+            screenHeight = GraphicsDevice.Viewport.Height;// game screen height
             base.Initialize();
         }
 
@@ -47,7 +52,15 @@ namespace Practice_Github_XNA_Game
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            //loads images into game
+            mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
+            bomb = Content.Load<Texture2D>("sprites/bomb");
+            shuriken = Content.Load<Texture2D>("sprites/shuriken");
+            //loads font into game
+            gameFont = Content.Load<SpriteFont>("fonts/gameFont");
+
+            bombRect = new Rectangle(100, 100, bomb.Width, bomb.Height);
+            shurikenRect = new Rectangle(100, 200, shuriken.Width, shuriken.Height);
         }
 
         /// <summary>
@@ -67,10 +80,17 @@ namespace Practice_Github_XNA_Game
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            if (Keyboard.GetState().IsKeyDown(Keys.Space)) this.Exit();//exits game when space key is pressed
 
-            // TODO: Add your update logic here
+            if (Keyboard.GetState().IsKeyDown(Keys.Right)) shurikenRect.X += 10;
+            if (Keyboard.GetState().IsKeyDown(Keys.Left)) shurikenRect.X -= 10;
+            if (Keyboard.GetState().IsKeyDown(Keys.Up)) shurikenRect.Y -= 10;
+            if (Keyboard.GetState().IsKeyDown(Keys.Down)) shurikenRect.Y += 10;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.D)) bombRect.X += 10;
+            if (Keyboard.GetState().IsKeyDown(Keys.A)) bombRect.X -= 10;
+            if (Keyboard.GetState().IsKeyDown(Keys.W)) bombRect.Y -= 10;
+            if (Keyboard.GetState().IsKeyDown(Keys.S)) bombRect.Y += 10;
 
             base.Update(gameTime);
         }
@@ -83,7 +103,13 @@ namespace Practice_Github_XNA_Game
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height);
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(mouseIcon, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
+            spriteBatch.Draw(bomb, bombRect, Color.White);
+            spriteBatch.Draw(shuriken, shurikenRect, Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
