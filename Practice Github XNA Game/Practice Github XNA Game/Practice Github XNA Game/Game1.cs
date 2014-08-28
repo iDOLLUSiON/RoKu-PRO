@@ -21,7 +21,7 @@ namespace Practice_Github_XNA_Game
 
         Texture2D mouseIcon, bomb, shuriken, explosion;//2d images
         SpriteFont gameFont;//font
-        Rectangle mouseIconRect, bombRect, shurikenRect;//rectangles for basic collision and shit
+        Rectangle mouseIconRect, bombRect, shurikenRect, blockRect, collisionRect;//rectangles for basic collision and shit
         int screenWidth, screenHeight;
         bool boom;
         protected int bombTimer = 0;
@@ -66,6 +66,8 @@ namespace Practice_Github_XNA_Game
             //adds collision for bomb and shuriken images
             bombRect = new Rectangle(100, 100, bomb.Width, bomb.Height);
             shurikenRect = new Rectangle(100, 200, shuriken.Width, shuriken.Height);
+            blockRect = new Rectangle(200,200,shuriken.Width,shuriken.Height);
+            
         }
 
         /// <summary>
@@ -82,7 +84,24 @@ namespace Practice_Github_XNA_Game
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+    
+    //I guess ill stick variables here then
+    protected int shurShiftX = 0;
+    protected int shurShiftY = 0;
+    protected int bombShiftX = 0;
+    protected int bombShiftY = 0;
 
+    // and methods here
+    public bool  testCollision(Rectangle rect1, Rectangle rect2)
+{
+    if (rect1.Intersects(rect2))
+     {
+    return true;
+     }
+    else
+    return false;
+}
+          
         protected override void Update(GameTime gameTime)
         {
             var mouseState = Mouse.GetState();
@@ -93,10 +112,10 @@ namespace Practice_Github_XNA_Game
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) this.Exit();//exits game when space key is pressed
             //im sure theres a more efficient way of doing this i just dont know how atm
             //keyboard controls for the shuriken
-            if (Keyboard.GetState().IsKeyDown(Keys.Right)) shurikenRect.X += 5;
-            if (Keyboard.GetState().IsKeyDown(Keys.Left)) shurikenRect.X -= 5;
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)) shurikenRect.Y -= 5;
-            if (Keyboard.GetState().IsKeyDown(Keys.Down)) shurikenRect.Y += 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.Right)) shurShiftX += 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.Left)) shurShiftX -= 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.Up)) shurShiftY -= 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.Down)) shurShiftY += 5;
             //keyboard controls for the bomb
             if (Keyboard.GetState().IsKeyDown(Keys.D)) bombRect.X += 5;
             if (Keyboard.GetState().IsKeyDown(Keys.A)) bombRect.X -= 5;
@@ -139,6 +158,36 @@ namespace Practice_Github_XNA_Game
                 bombExploded=true;
             }
 
+//movement & collision nprocessing
+            if (shurShiftX != 0 || shurShiftY != 0)
+                {
+                if (shurShiftX != 0)
+                    {
+                        //test for collision
+                        //setup new invisible rectangle identical to old
+                        collisionRect = new Rectangle(shurikenRect.X, shurikenRect.Y, shuriken.Width, shuriken.Height);
+                        collisionRect.X += shurShiftX;  //apply pending movement shifts to test them
+                    if (testCollision(collisionRect, blockRect)) //call method
+                        {
+                            shurShiftX = -1*shurShiftX;
+                        }
+                    else shurikenRect.X += shurShiftX;
+                          shurShiftX = 0;  //reset shurshift to 0 for future use
+                    }
+                if (shurShiftY != 0)
+                    {
+                        collisionRect = new Rectangle(shurikenRect.X, shurikenRect.Y, shuriken.Width, shuriken.Height);
+                        collisionRect.X += shurShiftX; //keep consistent with previous check
+                       collisionRect.Y += shurShiftY;
+                    if (testCollision(collisionRect, blockRect)) //call method
+                        {
+                            shurShiftY = -1*shurShiftY;
+                        }
+                    else shurikenRect.Y += shurShiftY;
+                          shurShiftY = 0;  //reset shurshift to 0 for future use
+                    }
+                }
+
             base.Update(gameTime);
         }
 
@@ -163,6 +212,7 @@ namespace Practice_Github_XNA_Game
                 spriteBatch.Draw(bomb, bombRect, Color.White);//else draw bomb
             }
             spriteBatch.Draw(shuriken, shurikenRect, Color.White);
+            spriteBatch.Draw(shuriken, blockRect, Color.Red);
             spriteBatch.End();
 
             base.Draw(gameTime);
