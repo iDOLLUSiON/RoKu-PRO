@@ -93,15 +93,15 @@ namespace Practice_Github_XNA_Game
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) this.Exit();//exits game when space key is pressed
             //im sure theres a more efficient way of doing this i just dont know how atm
             //keyboard controls for the shuriken
-            if (Keyboard.GetState().IsKeyDown(Keys.Right)) shurikenRect.X += 10;
-            if (Keyboard.GetState().IsKeyDown(Keys.Left)) shurikenRect.X -= 10;
-            if (Keyboard.GetState().IsKeyDown(Keys.Up)) shurikenRect.Y -= 10;
-            if (Keyboard.GetState().IsKeyDown(Keys.Down)) shurikenRect.Y += 10;
+            if (Keyboard.GetState().IsKeyDown(Keys.Right)) shurikenRect.X += 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.Left)) shurikenRect.X -= 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.Up)) shurikenRect.Y -= 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.Down)) shurikenRect.Y += 5;
             //keyboard controls for the bomb
-            if (Keyboard.GetState().IsKeyDown(Keys.D)) bombRect.X += 10;
-            if (Keyboard.GetState().IsKeyDown(Keys.A)) bombRect.X -= 10;
-            if (Keyboard.GetState().IsKeyDown(Keys.W)) bombRect.Y -= 10;
-            if (Keyboard.GetState().IsKeyDown(Keys.S)) bombRect.Y += 10;
+            if (Keyboard.GetState().IsKeyDown(Keys.D)) bombRect.X += 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.A)) bombRect.X -= 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.W)) bombRect.Y -= 5;
+            if (Keyboard.GetState().IsKeyDown(Keys.S)) bombRect.Y += 5;
             //screen bounds collision for shuriken
             if (shurikenRect.X < 0) shurikenRect.X = 0;
             if (shurikenRect.Y < 0) shurikenRect.Y = 0;
@@ -134,6 +134,10 @@ bomb =Content.Load<Texture2D>("sprites/bomb");
         bombExploded = true;
         bombTimer = 0;
         }
+    }
+if (bombRect.Intersects(shurikenRect))
+    {
+        bombExploded=true;
     }
 
 
