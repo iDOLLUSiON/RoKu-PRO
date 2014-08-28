@@ -58,7 +58,7 @@ namespace Practice_Github_XNA_Game
             shuriken = Content.Load<Texture2D>("sprites/shuriken");
             //loads font into game
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
-
+            //adds collision for bomb and shuriken images
             bombRect = new Rectangle(100, 100, bomb.Width, bomb.Height);
             shurikenRect = new Rectangle(100, 200, shuriken.Width, shuriken.Height);
         }
