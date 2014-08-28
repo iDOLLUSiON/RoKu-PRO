@@ -37,6 +37,15 @@
       <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Content\fonts\gameFont.xnb</Output>
       <Time>2014-08-28T01:29:17.5888624-04:00</Time>
     </Item>
+    <Item>
+      <Source>sprites\explosion.png</Source>
+      <Name>sprites\explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Content\sprites\explosion.xnb</Output>
+      <Time>2014-08-28T15:51:06.0984199-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

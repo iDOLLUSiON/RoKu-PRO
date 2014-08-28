@@ -18,3 +18,5 @@ C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Practice Github XNA Game\Practice Github X
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\obj\x86\Debug\Practice Github XNA Game.exe
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\obj\x86\Debug\Practice Github XNA Game.pdb
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Content\sprites\explosion.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\bin\x86\Debug\Content\sprites\explosion.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Practice Github XNA Game\Practice Github XNA Game\Practice Github XNA Game\obj\x86\Debug\Practice Github XNA Game.csprojResolveAssemblyReference.cache
