@@ -21,8 +21,12 @@ namespace Practice_Github_XNA_Game
 
         Texture2D mouseIcon, bomb, shuriken, explosion;//2d images
         SpriteFont gameFont;//font
-        Rectangle mouseIconRect, bombRect, shurikenRect;//rectangles for basic collision and shit
+        Rectangle mouseIconRect, bombRect, shurikenRect, explosionRect;//rectangles for basic collision and shit
         int screenWidth, screenHeight;
+        bool boom;
+        protected int bombTimer = 0;
+        protected int bombLimit = 50;
+        protected bool bombExploded = false;
 
         public Game1()
         {
@@ -56,6 +60,7 @@ namespace Practice_Github_XNA_Game
             mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
             bomb = Content.Load<Texture2D>("sprites/bomb");
             shuriken = Content.Load<Texture2D>("sprites/shuriken");
+            explosion = Content.Load<Texture2D>("sprites/explosion");
             //loads font into game
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
             //adds collision for bomb and shuriken images
@@ -77,11 +82,6 @@ namespace Practice_Github_XNA_Game
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-
-        //Variables
-        protected int bombTimer =0;
-        protected int bombLimit = 50;
-        protected bool bombExploded = false;
 
         protected override void Update(GameTime gameTime)
         {
@@ -115,32 +115,29 @@ namespace Practice_Github_XNA_Game
             
             if (bombExploded)
             {
-             bomb = Content.Load<Texture2D>("sprites/explosion");
-            bombTimer++;
+                boom = true;
+                bombTimer++;
                 if (bombTimer > bombLimit)
-    {
-        bombExploded = false;
-        bombTimer = 0;
-    }   
-}
-else
-{
-bomb =Content.Load<Texture2D>("sprites/bomb");
-}
+                {
+                    bombExploded = false;bombTimer = 0;
+                }
+            }
+            else
+            {
+                boom = false;
+            }
             if(bombRect.Contains(mousePosition))
-    {
-       if (mouseState.LeftButton == ButtonState.Pressed) {
-
-        bombExploded = true;
-        bombTimer = 0;
-        }
-    }
-if (bombRect.Intersects(shurikenRect))
-    {
-        bombExploded=true;
-    }
-
-
+            {
+                if(mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    bombExploded = true;
+                    bombTimer = 0;
+                }
+            }
+            if(bombRect.Intersects(shurikenRect))
+            {
+                bombExploded=true;
+            }
 
             base.Update(gameTime);
         }
@@ -157,7 +154,14 @@ if (bombRect.Intersects(shurikenRect))
 
             spriteBatch.Begin();
             spriteBatch.Draw(mouseIcon, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
-            spriteBatch.Draw(bomb, bombRect, Color.White);
+            if (boom)
+            {
+                spriteBatch.Draw(explosion, bombRect, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(bomb, bombRect, Color.White);
+            }
             spriteBatch.Draw(shuriken, shurikenRect, Color.White);
             spriteBatch.End();
 
