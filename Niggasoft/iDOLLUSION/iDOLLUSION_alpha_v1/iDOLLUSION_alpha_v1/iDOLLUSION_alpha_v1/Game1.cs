@@ -21,7 +21,7 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button;
+        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle;
         private SpriteFont gameFont;
         private Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect;
         private int screenWidth, screenHeight;
@@ -35,6 +35,7 @@ namespace iDOLLUSION_alpha_v1
          Song techworld;
         SoundEffect edenEffect;
          int splashTimer = 0;
+        Random rnd = new Random();
 
 
         public Game1()
@@ -66,6 +67,7 @@ namespace iDOLLUSION_alpha_v1
             goldButton = Content.Load<Texture2D>("sprites/goldenArrow");
             silverButtonR = Content.Load <Texture2D> ("sprites/silverArrowReversed");
             goldButtonR = Content.Load<Texture2D>("sprites/goldenArrowReversed");
+            sparkle = Content.Load<Texture2D>("sprites/goldButton");
             background = Content.Load<Texture2D>("images/background");
             mainmenu = Content.Load<Texture2D>("images/mainmenu");
             splash = Content.Load<Texture2D>("images/splash");
@@ -151,6 +153,12 @@ namespace iDOLLUSION_alpha_v1
                     spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                     spriteBatch.Draw(button, buttonExitRect, Color.White);
                     spriteBatch.DrawString(gameFont, "Exit", exitStringCoord, Color.Brown ); //TODO change font size, move dynamically
+                if (rnd.Next(0, 31) == 0)
+                {
+                    Sparkle rndSparkle = new Sparkle();
+                    spriteBatch.Draw(sparkle, rndSparkle.position, Color.White);
+
+                }
                     
                 if (buttonSizeDir ==1)
                 {
