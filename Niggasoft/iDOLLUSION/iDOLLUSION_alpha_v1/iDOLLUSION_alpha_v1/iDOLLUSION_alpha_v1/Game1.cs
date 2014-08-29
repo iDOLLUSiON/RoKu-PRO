@@ -23,11 +23,12 @@ namespace iDOLLUSION_alpha_v1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
       public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle;
-     public    SpriteFont gameFont;
-     public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect;
+      public    SpriteFont gameFont;
+      public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect;
         private int screenWidth, screenHeight;
-        bool atSplash = true;
-        bool atMainMenu = false;
+//public variables     
+         bool atSplash = true;
+         bool atMainMenu = false;
          int directionSilver = 1;
          int directionGold = 1;
          int buttonSizeDir = 1;
@@ -38,6 +39,7 @@ namespace iDOLLUSION_alpha_v1
          int splashTimer = 0;
         Random rnd = new Random();
     // object arrays
+    //testing
 
 
         public Game1()
@@ -45,6 +47,8 @@ namespace iDOLLUSION_alpha_v1
 
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+                    XMLReader.readText();
+
         }
         protected override void Initialize()
         {
@@ -184,21 +188,23 @@ namespace iDOLLUSION_alpha_v1
              /*   foreach (Sparkle sparkle in Sparkle.sparkles)
                 {
                     element.updateLifespan();  //update lifespan of each sparkle every frame
-
                 }*/
                 int numSparkles = Sparkle.sparkles.Length;
                 for (int i = 0; i != numSparkles; i++)
                 {
                     Sparkle thisSparkle = Sparkle.sparkles[i];
-                    if (thisSparkle != null)
+                    if (thisSparkle != null && !thisSparkle.dead) //handle null when no sparkles are around
                     {
-
                         thisSparkle.updateLifespan();
                         spriteBatch.Draw(sparkle, thisSparkle.position, Color.White);
                         if (i == numSparkles)
                         {
                             i = 0;
                         }
+                    }
+                    else
+                    {
+                        spriteBatch.DrawString(gameFont,  "Not sparkly at all..." , new Vector2(400, 400), Color.Red);
                     }
                 }
                 

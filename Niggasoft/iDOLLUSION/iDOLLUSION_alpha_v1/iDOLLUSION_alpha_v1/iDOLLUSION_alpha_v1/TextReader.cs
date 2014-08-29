@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework;
 
 public class TextReader
 {
-	public void readText()
+	public static void readText()
 	{
 //	    Content.RootDirectory = "Content";
 
-		string path = "data\test.txt"; //..\..\Data\thenwhowasphone.txt
+		string path = @"C:\Users\CJ\Desktop\test.xml"; //..\..\Data\thenwhowasphone.txt
 		using (StreamReader sr = File.OpenText(path))
 		{
 			string s = "";
