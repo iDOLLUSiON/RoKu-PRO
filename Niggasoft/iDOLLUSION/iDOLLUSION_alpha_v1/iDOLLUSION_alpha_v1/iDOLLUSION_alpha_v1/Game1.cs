@@ -16,9 +16,10 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D silverButton, goldButton;
+        private Texture2D background, silverButton, goldButton;
         private SpriteFont gameFont;
-        private Rectangle silverButtonRect, goldButtonRect;
+        private Rectangle backgroundRect, silverButtonRect, goldButtonRect;
+        private int screenWidth, screenHeight;
 
         public Game1()
         {
@@ -31,6 +32,9 @@ namespace iDOLLUSION_alpha_v1
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
             graphics.ApplyChanges();
+            screenWidth = GraphicsDevice.Viewport.Width;
+            screenHeight = GraphicsDevice.Viewport.Height;
+            backgroundRect = new Rectangle(0,0,screenWidth,screenHeight);
             silverButtonRect = new Rectangle(0,0,64,64);
             goldButtonRect = new Rectangle(50,0,64,64);
             base.Initialize();
@@ -40,6 +44,7 @@ namespace iDOLLUSION_alpha_v1
             spriteBatch = new SpriteBatch(GraphicsDevice);
             silverButton = Content.Load <Texture2D> ("sprites/silverButton");
             goldButton = Content.Load<Texture2D>("sprites/goldButton");
+            background = Content.Load<Texture2D>("images/background");
         }
         protected override void UnloadContent()
         {
@@ -53,6 +58,7 @@ namespace iDOLLUSION_alpha_v1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
+            spriteBatch.Draw(background,backgroundRect,Color.White);
             spriteBatch.Draw(silverButton, silverButtonRect,Color.White );
             spriteBatch.Draw(goldButton, goldButtonRect, Color.White); 
             spriteBatch.End();

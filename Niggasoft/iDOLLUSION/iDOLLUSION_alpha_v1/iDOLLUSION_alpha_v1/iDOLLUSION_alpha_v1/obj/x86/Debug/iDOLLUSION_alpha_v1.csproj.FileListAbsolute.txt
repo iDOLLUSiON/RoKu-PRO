@@ -18,3 +18,4 @@ C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSIO
 C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.csproj.GenerateResource.Cache
 C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb
 C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\background.xnb
