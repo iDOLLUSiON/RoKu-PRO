@@ -184,7 +184,7 @@ namespace iDOLLUSION_alpha_v1
                     MediaPlayer.Pause();
                 }
 
-                if (buttonExitRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (buttonExitRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     Exit();
                 }
