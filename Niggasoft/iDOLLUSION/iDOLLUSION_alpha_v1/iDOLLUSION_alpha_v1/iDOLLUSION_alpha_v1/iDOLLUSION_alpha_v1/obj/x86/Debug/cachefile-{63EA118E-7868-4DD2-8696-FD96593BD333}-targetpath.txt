@@ -2,4 +2,6 @@ Content\images\background.xnb
 Content\sprites\goldButton.xnb
 Content\sprites\silverButton.xnb
 Content\images\splash.xnb
-Content\fonts\JPFont.xnb
+Content\sprites\goldenArrow.xnb
+Content\sprites\silverArrow.xnb
+Content\fonts\gameFont.xnb

@@ -2,13 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>fonts\gameFont.spritefont</Source>
-      <Name>fonts\JPFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
+      <Source>images\background.png</Source>
+      <Name>images\background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\JPFont.xnb</Output>
-      <Time>2014-08-28T21:26:56.9999856-04:00</Time>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\background.xnb</Output>
+      <Time>2014-08-28T22:37:27.6099626-04:00</Time>
     </Item>
     <Item>
       <Source>sprites\goldButton.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb</Output>
-      <Time>2014-08-28T21:40:19.0418597-04:00</Time>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb</Output>
+      <Time>2014-08-28T22:37:27.6289637-04:00</Time>
     </Item>
     <Item>
       <Source>sprites\silverButton.png</Source>
@@ -25,17 +25,44 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb</Output>
-      <Time>2014-08-28T21:40:19.0508603-04:00</Time>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb</Output>
+      <Time>2014-08-28T22:37:27.6289637-04:00</Time>
     </Item>
     <Item>
-      <Source>images\background.png</Source>
-      <Name>images\background</Name>
+      <Source>images\splash.png</Source>
+      <Name>images\splash</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\background.xnb</Output>
-      <Time>2014-08-28T21:47:49.5056248-04:00</Time>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\splash.xnb</Output>
+      <Time>2014-08-28T22:37:27.6239634-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\goldenArrow.png</Source>
+      <Name>sprites\goldenArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldenArrow.xnb</Output>
+      <Time>2014-08-28T22:38:21.4350412-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\silverArrow.png</Source>
+      <Name>sprites\silverArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverArrow.xnb</Output>
+      <Time>2014-08-28T22:38:21.4440418-04:00</Time>
+    </Item>
+    <Item>
+      <Source>fonts\gameFont.spritefont</Source>
+      <Name>fonts\gameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\gameFont.xnb</Output>
+      <Time>2014-08-28T22:41:01.440193-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -43,10 +70,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

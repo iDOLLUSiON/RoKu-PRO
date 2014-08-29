@@ -39,19 +39,18 @@ namespace iDOLLUSION_alpha_v1
             screenWidth = GraphicsDevice.Viewport.Width;
             screenHeight = GraphicsDevice.Viewport.Height;
             backgroundRect = new Rectangle(0,0,screenWidth,screenHeight);
-            silverButtonRect = new Rectangle(0,0,64,64);
-            goldButtonRect = new Rectangle(50,0,64,64);
+            silverButtonRect = new Rectangle(0,0,60,29);
+            goldButtonRect = new Rectangle(60,0,60,29);
             base.Initialize();
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            silverButton = Content.Load <Texture2D> ("sprites/silverButton");
-            goldButton = Content.Load<Texture2D>("sprites/goldButton");
+            silverButton = Content.Load <Texture2D> ("sprites/silverArrow");
+            goldButton = Content.Load<Texture2D>("sprites/goldenArrow");
             background = Content.Load<Texture2D>("images/background");
             splash = Content.Load<Texture2D>("images/splash");
-            gameFont = Content.Load<SpriteFont>("‚ ‚ñ‚¸‚à‚¶");
-
+            gameFont = Content.Load<SpriteFont>("fonts/gameFont");
         }
         protected override void UnloadContent()
         {
@@ -80,7 +79,8 @@ namespace iDOLLUSION_alpha_v1
                 spriteBatch.Draw(background, backgroundRect, Color.White);
             }
             spriteBatch.Draw(silverButton, silverButtonRect,Color.White );
-            spriteBatch.Draw(goldButton, goldButtonRect, Color.White); 
+            spriteBatch.Draw(goldButton, goldButtonRect, Color.White);
+            spriteBatch.DrawString(gameFont, "Sample text", new Vector2(0, 40), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
         }
