@@ -37,6 +37,7 @@ namespace iDOLLUSION_alpha_v1
         private Vector2 startStringCoord = new Vector2(637, 380);
          Song techworld;
         SoundEffect edenEffect;
+         SoundEffect nocturneEffect;
          int startTextBox = 1;
         
          int splashTimer = 0;
@@ -86,6 +87,7 @@ namespace iDOLLUSION_alpha_v1
             mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
             edenEffect = Content.Load<SoundEffect>("sounds/eden");
             techworld = Content.Load<Song>("sounds/techworld");
+            nocturneEffect = Content.Load<SoundEffect>("sounds/nocturne");
             MediaPlayer.Play(techworld);
             MediaPlayer.IsRepeating = true;
 
@@ -236,6 +238,7 @@ namespace iDOLLUSION_alpha_v1
             }
             else //past splash and mainmenu
             {
+                nocturneEffect.Play();
                 //handle textbox
                 spriteBatch.Draw(background, backgroundRect, Color.White);
                 edenEffect.Dispose();
