@@ -20,11 +20,12 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon;
+        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu;
         private SpriteFont gameFont;
-        private Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect;
+        private Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect;
         private int screenWidth, screenHeight;
         bool atSplash = true;
+        bool atMainMenu = false;
          int directionSilver = 1;
          int directionGold = 1;         
 
@@ -44,6 +45,7 @@ namespace iDOLLUSION_alpha_v1
             screenWidth = GraphicsDevice.Viewport.Width;
             screenHeight = GraphicsDevice.Viewport.Height;
             backgroundRect = new Rectangle(0,0,screenWidth,screenHeight);
+            mainmenuRect = new Rectangle(0,0,screenWidth,screenHeight);
             silverButtonRect = new Rectangle(230,410,90,49);
             goldButtonRect = new Rectangle(60,0,60,29);
             base.Initialize();
@@ -56,6 +58,7 @@ namespace iDOLLUSION_alpha_v1
             silverButtonR = Content.Load <Texture2D> ("sprites/silverArrowReversed");
             goldButtonR = Content.Load<Texture2D>("sprites/goldenArrowReversed");
             background = Content.Load<Texture2D>("images/background");
+            mainmenu = Content.Load<Texture2D>("images/mainmenu");
             splash = Content.Load<Texture2D>("images/splash");
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
             mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
@@ -70,6 +73,7 @@ namespace iDOLLUSION_alpha_v1
             if (atSplash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
                 atSplash = false;
+                atMainMenu = true;
             }
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height);
             base.Update(gameTime);
@@ -113,10 +117,17 @@ namespace iDOLLUSION_alpha_v1
                     spriteBatch.Draw(goldButtonR, goldButtonRect, Color.White);
                 }
             }
-            else
+            else if (atMainMenu)
             {     
-                    spriteBatch.Draw(background, backgroundRect, Color.White);
+                    spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                 
+            }
+            else
+            {
+                spriteBatch.Draw(background, backgroundRect, Color.White);
+            }
+            if (atMainMenu)
+            {
             }
             spriteBatch.Draw(mouseIcon, mouseIconRect, Color.White);
             spriteBatch.DrawString(gameFont, "Sample text", new Vector2(0, 40), Color.White);
