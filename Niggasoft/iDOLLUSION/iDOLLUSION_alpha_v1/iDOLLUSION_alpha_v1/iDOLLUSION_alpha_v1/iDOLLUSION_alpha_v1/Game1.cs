@@ -25,8 +25,8 @@ namespace iDOLLUSION_alpha_v1
         private Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect;
         private int screenWidth, screenHeight;
         bool atSplash = true;
-         int modifier1 = 1;
-         int modifier2 = 1;         
+         int directionSilver = 1;
+         int directionGold = 1;         
 
 
         public Game1()
@@ -81,40 +81,43 @@ namespace iDOLLUSION_alpha_v1
             if (atSplash)
             {
                 spriteBatch.Draw(splash, backgroundRect, Color.White);
-                silverButtonRect.X +=5*modifier1;
-                goldButtonRect.X +=6*modifier2;
+                silverButtonRect.X +=5*directionSilver;
+                goldButtonRect.X +=6*directionGold;
                     //handle collisions with walls
                 if (silverButtonRect.X == 220 || silverButtonRect.X == 510)
                 {
-                    modifier1 *= -1;
+                    directionSilver *= -1;
                 }
-                if (goldButtonRect.X == 0 || goldButtonRect.X + goldButtonR.Width > 1280)
+                if (goldButtonRect.X + goldButtonR.Width < 10 || goldButtonRect.X + goldButtonR.Width > 1280)
                 {
-                    modifier2 *= -1;
+                    directionGold *= -1;
                 }
             }
-            if (!atSplash)
+            if (atSplash)
             {
-                spriteBatch.Draw(background, backgroundRect, Color.White);
-            }
-            if (modifier1 > 0)
-            {
-                spriteBatch.Draw(silverButton, silverButtonRect, Color.White);
+    
+                if (directionSilver > 0)
+                {
+                    spriteBatch.Draw(silverButton, silverButtonRect, Color.White);
+                }
+                else
+                {
+                    spriteBatch.Draw(silverButtonR, silverButtonRect, Color.White);
+                }
+                if (directionGold > 0)
+                {
+                    spriteBatch.Draw(goldButton, goldButtonRect, Color.White);
+                }
+                if (directionGold < 0)
+                {
+                    spriteBatch.Draw(goldButtonR, goldButtonRect, Color.White);
+                }
             }
             else
-            {
-                spriteBatch.Draw(silverButtonR, silverButtonRect, Color.White);
+            {     
+                    spriteBatch.Draw(background, backgroundRect, Color.White);
+                
             }
-            if (modifier2 > 0)
-            {
-                spriteBatch.Draw(goldButton, goldButtonRect, Color.White);
-            }
-            else
-            {
-                spriteBatch.Draw(goldButtonR, goldButtonRect, Color.White);
-            }
-
-            spriteBatch.Draw(goldButton, goldButtonRect, Color.White);
             spriteBatch.Draw(mouseIcon, mouseIconRect, Color.White);
             spriteBatch.DrawString(gameFont, "Sample text", new Vector2(0, 40), Color.White);
             spriteBatch.DrawString(gameFont, Mouse.GetState().X.ToString() + " " + Mouse.GetState().Y.ToString(), new Vector2(0, 100), Color.White);
