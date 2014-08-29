@@ -50,6 +50,8 @@ namespace iDOLLUSION_alpha_v1
             goldButton = Content.Load<Texture2D>("sprites/goldButton");
             background = Content.Load<Texture2D>("images/background");
             splash = Content.Load<Texture2D>("images/splash");
+            gameFont = Content.Load<SpriteFont>("‚ ‚ñ‚¸‚à‚¶");
+
         }
         protected override void UnloadContent()
         {
