@@ -98,7 +98,6 @@ namespace Practice_Github_XNA_Game
             {
                 return true;
             }
-            else
                 return false;
         }
           
