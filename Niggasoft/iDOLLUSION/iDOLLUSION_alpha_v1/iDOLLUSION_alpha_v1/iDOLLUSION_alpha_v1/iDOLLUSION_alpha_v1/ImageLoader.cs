@@ -5,7 +5,7 @@ using System.Net.Mime;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+/*
 namespace iDOLLUSION_alpha_v1
 {
     class ImageLoader
@@ -15,7 +15,8 @@ namespace iDOLLUSION_alpha_v1
 
         protected SpriteBatch loadImagesAndRectangles(Texture2D image, Rectangle imageRect)
         {
-
+            return ;
         }
     }
 }
+*/
