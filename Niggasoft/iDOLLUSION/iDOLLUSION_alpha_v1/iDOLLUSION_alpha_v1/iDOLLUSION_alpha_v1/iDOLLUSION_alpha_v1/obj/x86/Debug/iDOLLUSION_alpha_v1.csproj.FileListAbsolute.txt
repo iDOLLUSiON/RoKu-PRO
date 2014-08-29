@@ -23,3 +23,16 @@ C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\i
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\splash.xnb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\background.xnb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\splash.xnb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\JPFont.xnb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\iDOLLUSION_alpha_v1.exe
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\iDOLLUSION_alpha_v1.pdb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.csprojResolveAssemblyReference.cache
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.Menu.resources
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.csproj.GenerateResource.Cache
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.exe
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.pdb

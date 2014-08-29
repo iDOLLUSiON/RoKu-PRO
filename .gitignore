@@ -35,3 +35,6 @@ Thumbs.db
 *.class
 *.class
 *.exe
+*.cachefile
+*.xml
+*.suo

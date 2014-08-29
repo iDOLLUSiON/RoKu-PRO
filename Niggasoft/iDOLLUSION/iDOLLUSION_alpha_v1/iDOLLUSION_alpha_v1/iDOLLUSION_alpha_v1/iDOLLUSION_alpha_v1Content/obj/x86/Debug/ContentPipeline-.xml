@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\background.xnb</Output>
-      <Time>2014-08-28T21:54:34.3733962-04:00</Time>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\background.xnb</Output>
+      <Time>2014-08-28T22:29:11.1901834-04:00</Time>
     </Item>
     <Item>
       <Source>sprites\goldButton.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb</Output>
-      <Time>2014-08-28T21:22:18.7416844-04:00</Time>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb</Output>
+      <Time>2014-08-28T22:29:11.2241853-04:00</Time>
     </Item>
     <Item>
       <Source>sprites\silverButton.png</Source>
@@ -25,17 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb</Output>
-      <Time>2014-08-28T21:22:28.62925-04:00</Time>
-    </Item>
-    <Item>
-      <Source>fonts\gameFont.spritefont</Source>
-      <Name>fonts\JPFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\JPFont.xnb</Output>
-      <Time>2014-08-28T21:46:55.67116-04:00</Time>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb</Output>
+      <Time>2014-08-28T22:29:11.2241853-04:00</Time>
     </Item>
     <Item>
       <Source>images\splash.png</Source>
@@ -43,8 +34,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\splash.xnb</Output>
-      <Time>2014-08-28T22:07:45.1986289-04:00</Time>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\splash.xnb</Output>
+      <Time>2014-08-28T22:29:11.2061843-04:00</Time>
+    </Item>
+    <Item>
+      <Source>fonts\gameFont.spritefont</Source>
+      <Name>fonts\JPFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\JPFont.xnb</Output>
+      <Time>2014-08-28T22:29:11.183183-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -53,10 +53,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
