@@ -34,10 +34,9 @@ namespace iDOLLUSION_alpha_v1
          int buttonSizeDir = 1;
         private Vector2 exitStringCoord = new Vector2(637, 520);
         private Vector2 startStringCoord = new Vector2(637, 380);
-
-     //    Song eden;
          Song techworld;
         SoundEffect edenEffect;
+        
          int splashTimer = 0;
         Random rnd = new Random();
     // object arrays
@@ -159,6 +158,8 @@ namespace iDOLLUSION_alpha_v1
             }
             else if (atMainMenu)
             {
+                MediaPlayer.Stop();
+                techworld.Dispose();
                 atSplash = false;
                     spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                     spriteBatch.Draw(button, buttonExitRect, Color.White);
@@ -217,22 +218,23 @@ namespace iDOLLUSION_alpha_v1
                         spriteBatch.DrawString(gameFont,  "Not sparkly at all..." , new Vector2(200, 400), Color.Red);
                     }
                 }
-                
-               
-                if (MediaPlayer.IsRepeating)
-                {
-                    MediaPlayer.Pause();
-                }
+
+
 
                 if (buttonExitRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     Exit();
                 }
+                if (buttonStartRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
+                {
+                    atMainMenu = false;
+                }
                 
             }
-            else
+            else //past splash and mainmenu
             {
                 spriteBatch.Draw(background, backgroundRect, Color.White);
+                edenEffect.Dispose();
             }
             spriteBatch.Draw(mouseIcon, mouseIconRect, Color.White);
             spriteBatch.DrawString(gameFont, Mouse.GetState().X.ToString() + " " + Mouse.GetState().Y.ToString(), new Vector2(0, 100), Color.White);
