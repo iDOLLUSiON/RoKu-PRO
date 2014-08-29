@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+//using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Xna.Framework;
@@ -20,15 +21,18 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu;
+        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button;
         private SpriteFont gameFont;
-        private Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect;
+        private Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect;
         private int screenWidth, screenHeight;
         bool atSplash = true;
         bool atMainMenu = false;
          int directionSilver = 1;
          int directionGold = 1;
-         Song mySong;
+     //    Song eden;
+         Song techworld;
+        SoundEffect edenEffect;
+         int splashTimer = 0;
 
 
         public Game1()
@@ -49,12 +53,14 @@ namespace iDOLLUSION_alpha_v1
             mainmenuRect = new Rectangle(0,0,screenWidth,screenHeight);
             silverButtonRect = new Rectangle(230,410,90,49);
             goldButtonRect = new Rectangle(60,0,60,29);
+            buttonExitRect = new Rectangle(510, 380, 300, 100);
             base.Initialize();
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             silverButton = Content.Load <Texture2D> ("sprites/silverArrow");
+            button = Content.Load<Texture2D>("sprites/button");
             goldButton = Content.Load<Texture2D>("sprites/goldenArrow");
             silverButtonR = Content.Load <Texture2D> ("sprites/silverArrowReversed");
             goldButtonR = Content.Load<Texture2D>("sprites/goldenArrowReversed");
@@ -63,8 +69,9 @@ namespace iDOLLUSION_alpha_v1
             splash = Content.Load<Texture2D>("images/splash");
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
             mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
-            mySong = Content.Load<Song>("sounds/kommSusserTod");
-            MediaPlayer.Play(mySong);
+            edenEffect = Content.Load<SoundEffect>("sounds/eden");
+            techworld = Content.Load<Song>("sounds/techworld");
+            MediaPlayer.Play(techworld);
             MediaPlayer.IsRepeating = true;
 
 
@@ -75,12 +82,15 @@ namespace iDOLLUSION_alpha_v1
         }
         protected override void Update(GameTime gameTime)
         {
+ 
+
             
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
             if (atSplash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
                 atSplash = false;
                 atMainMenu = true;
+                edenEffect.Play();
             }
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height);
             base.Update(gameTime);
@@ -89,7 +99,8 @@ namespace iDOLLUSION_alpha_v1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-
+       var mouseState = Mouse.GetState();
+        Point mousePosition = new Point(mouseState.X, mouseState.Y);
             spriteBatch.Begin();
             if (atSplash)
             {
@@ -108,7 +119,13 @@ namespace iDOLLUSION_alpha_v1
             }
             if (atSplash)
             {
-    
+                splashTimer++;
+                if (splashTimer > 1000)
+                {
+                    atSplash = false;
+                    atMainMenu = true;
+                edenEffect.Play();
+                }
                 if (directionSilver > 0)
                 {
                     spriteBatch.Draw(silverButton, silverButtonRect, Color.White);
@@ -127,19 +144,27 @@ namespace iDOLLUSION_alpha_v1
                 }
             }
             else if (atMainMenu)
-            {     
+            {
+                atSplash = false;
                     spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
+                    spriteBatch.Draw(button, buttonExitRect, Color.White);
+                    spriteBatch.DrawString(gameFont, "Exit", new Vector2(637, 420), Color.Brown ); //TODO change font size
+                if (MediaPlayer.IsRepeating)
+                {
+                    MediaPlayer.Pause();
+                }
+
+                if (buttonExitRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                {
+                    Exit();
+                }
                 
             }
             else
             {
                 spriteBatch.Draw(background, backgroundRect, Color.White);
             }
-            if (atMainMenu)
-            {
-            }
             spriteBatch.Draw(mouseIcon, mouseIconRect, Color.White);
-            spriteBatch.DrawString(gameFont, "Sample text", new Vector2(0, 40), Color.White);
             spriteBatch.DrawString(gameFont, Mouse.GetState().X.ToString() + " " + Mouse.GetState().Y.ToString(), new Vector2(0, 100), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);

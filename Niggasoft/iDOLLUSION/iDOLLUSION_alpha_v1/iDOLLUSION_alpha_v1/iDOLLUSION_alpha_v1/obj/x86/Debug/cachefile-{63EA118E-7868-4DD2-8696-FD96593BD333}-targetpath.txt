@@ -9,5 +9,7 @@ Content\sprites\silverArrowReversed.xnb
 Content\sprites\mouseIcon.xnb
 Content\images\mainmenu.xnb
 Content\fonts\gameFont.xnb
-Content\sounds\kommSusserTod.xnb
-Content\sounds\kommSusserTod.wma
+Content\sprites\button.xnb
+Content\sounds\techworld.xnb
+Content\sounds\techworld.wma
+Content\sounds\eden.xnb
