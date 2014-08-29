@@ -14,3 +14,6 @@ Content\sounds\techworld.xnb
 Content\sounds\techworld.wma
 Content\sounds\eden.xnb
 Content\sounds\nocturne.xnb
+Content\sprites\characterSelected.xnb
+Content\images\characterSelection.xnb
+Content\sprites\characterUnselected.xnb

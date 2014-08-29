@@ -55,26 +55,29 @@ public class XMLReader
         }
 
     }
+
     public static string retrieveMessage(string message)
     {
         dialogue.Load(path);
-        XmlNodeList nodelist = dialogue.SelectNodes("/Greeting"); 
+        XmlNodeList nodelist = dialogue.SelectNodes("/Greeting");
 
-        foreach (XmlNode node in nodelist) 
+        foreach (XmlNode node in nodelist)
         {
             try
             {
-               
-               string dialogueMessage = node.SelectSingleNode(message).InnerText;
-                 Console.WriteLine(message);                
+
+                string dialogueMessage = node.SelectSingleNode(message).InnerText;
+                Console.WriteLine(message);
                 Console.WriteLine(dialogueMessage);
                 return dialogueMessage;
 
             }
             catch (Exception e)
             {
-                
+                return "something broke";
             }
 
         }
+        return "something broke";
+    }
 }

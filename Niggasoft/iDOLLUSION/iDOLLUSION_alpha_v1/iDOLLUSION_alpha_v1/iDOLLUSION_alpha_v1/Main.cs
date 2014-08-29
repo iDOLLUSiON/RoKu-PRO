@@ -23,13 +23,14 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-      public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle;
+      public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected;
       public    SpriteFont gameFont;
       public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect;
         private int screenWidth, screenHeight;
 //public variables     
          bool atSplash = true;
          bool atMainMenu = false;
+        private bool atCharacterSelection = false;
          int directionSilver = 1;
          int directionGold = 1;
          int buttonSizeDir = 1;
@@ -80,6 +81,9 @@ namespace iDOLLUSION_alpha_v1
             silverButtonR = Content.Load <Texture2D> ("sprites/silverArrowReversed");
             goldButtonR = Content.Load<Texture2D>("sprites/goldenArrowReversed");
             sparkle = Content.Load<Texture2D>("sprites/goldButton");
+            characterSelection = Content.Load<Texture2D>("images/characterSelection");
+            characterSelected = Content.Load <Texture2D> ("sprites/characterSelected");
+            characterUnselected = Content.Load<Texture2D>("sprites/characterUnselected");
             background = Content.Load<Texture2D>("images/background");
             mainmenu = Content.Load<Texture2D>("images/mainmenu");
             splash = Content.Load<Texture2D>("images/splash");
@@ -232,17 +236,23 @@ namespace iDOLLUSION_alpha_v1
                 if (buttonStartRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     atMainMenu = false;
+                    atCharacterSelection = true;
 
                 }
                 
             }
-            else //past splash and mainmenu
+            if (atCharacterSelection)
             {
+              spriteBatch.Draw(characterSelection, backgroundRect, Color.White);
+
+            }
+            else if (!atMainMenu && !atSplash && !atCharacterSelection) //past splash and mainmenu
+                {
                 nocturneEffect.Play();
                 //handle textbox
                 spriteBatch.Draw(background, backgroundRect, Color.White);
                 edenEffect.Dispose();
-            }
+                }
             spriteBatch.Draw(mouseIcon, mouseIconRect, Color.White);
             spriteBatch.DrawString(gameFont, Mouse.GetState().X.ToString() + " " + Mouse.GetState().Y.ToString(), new Vector2(0, 100), Color.White);
             spriteBatch.End();
