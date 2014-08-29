@@ -110,6 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="XMLReader.cs" />
     <Compile Include="Sparkle.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="Menu.cs">
