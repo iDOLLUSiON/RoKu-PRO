@@ -29,6 +29,8 @@ namespace iDOLLUSION_alpha_v1
         bool atMainMenu = false;
          int directionSilver = 1;
          int directionGold = 1;
+         int buttonSizeDir = 1;
+        private Vector2 exitStringCoord = new Vector2(637, 420);
      //    Song eden;
          Song techworld;
         SoundEffect edenEffect;
@@ -148,7 +150,35 @@ namespace iDOLLUSION_alpha_v1
                 atSplash = false;
                     spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                     spriteBatch.Draw(button, buttonExitRect, Color.White);
-                    spriteBatch.DrawString(gameFont, "Exit", new Vector2(637, 420), Color.Brown ); //TODO change font size
+                    spriteBatch.DrawString(gameFont, "Exit", exitStringCoord, Color.Brown ); //TODO change font size, move dynamically
+                    
+                if (buttonSizeDir ==1)
+                {
+           //      buttonExitRect.Height += 1;
+                    exitStringCoord.X += 2;
+                buttonExitRect.Width += 2;
+                buttonExitRect.X += 1;
+                //    buttonExitRect.Y += 1;
+                    if (buttonExitRect.Width > 310)
+                    {
+                        buttonSizeDir = 0;
+                    }          
+                 }
+                if (buttonSizeDir == 0)
+                {
+          //      buttonExitRect.Height -= 1;
+                    exitStringCoord.X -=2;
+                buttonExitRect.Width -= 2;
+                buttonExitRect.X -= 1;
+            //    buttonExitRect.Y -= 1;
+                    if (buttonExitRect.Width < 290)
+                    {
+                        buttonSizeDir = 1;
+                    }
+                }
+
+                
+               
                 if (MediaPlayer.IsRepeating)
                 {
                     MediaPlayer.Pause();
