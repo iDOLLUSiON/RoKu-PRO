@@ -88,7 +88,7 @@ namespace iDOLLUSION_alpha_v1
                 {
                     directionSilver *= -1;
                 }
-                if (goldButtonRect.X + goldButtonR.Width < 10 || goldButtonRect.X + goldButtonR.Width > 1280)
+                if (goldButtonRect.X < 0 || goldButtonRect.X + goldButtonR.Width > 1280)
                 {
                     directionGold *= -1;
                 }
