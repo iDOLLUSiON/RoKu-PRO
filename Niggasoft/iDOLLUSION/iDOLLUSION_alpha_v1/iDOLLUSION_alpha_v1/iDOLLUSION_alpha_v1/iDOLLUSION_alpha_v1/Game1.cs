@@ -20,9 +20,9 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR;
+        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon;
         private SpriteFont gameFont;
-        private Rectangle backgroundRect, silverButtonRect, goldButtonRect;
+        private Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect;
         private int screenWidth, screenHeight;
         bool atSplash = true;
          int modifier1 = 1;
@@ -58,6 +58,7 @@ namespace iDOLLUSION_alpha_v1
             background = Content.Load<Texture2D>("images/background");
             splash = Content.Load<Texture2D>("images/splash");
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
+            mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
         }
         protected override void UnloadContent()
         {
@@ -70,7 +71,7 @@ namespace iDOLLUSION_alpha_v1
             {
                 atSplash = false;
             }
-            
+            mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height);
             base.Update(gameTime);
         }
         protected override void Draw(GameTime gameTime)
@@ -113,9 +114,10 @@ namespace iDOLLUSION_alpha_v1
                 spriteBatch.Draw(goldButtonR, goldButtonRect, Color.White);
             }
 
-             spriteBatch.DrawString(gameFont, Mouse.GetState().X.ToString() + " " + Mouse.GetState().Y.ToString(), new Vector2(0,100),Color.White);
             spriteBatch.Draw(goldButton, goldButtonRect, Color.White);
+            spriteBatch.Draw(mouseIcon, mouseIconRect, Color.White);
             spriteBatch.DrawString(gameFont, "Sample text", new Vector2(0, 40), Color.White);
+            spriteBatch.DrawString(gameFont, Mouse.GetState().X.ToString() + " " + Mouse.GetState().Y.ToString(), new Vector2(0, 100), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
         }
