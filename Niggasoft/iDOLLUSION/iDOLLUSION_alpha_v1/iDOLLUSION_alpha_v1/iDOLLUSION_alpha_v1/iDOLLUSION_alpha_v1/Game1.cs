@@ -44,7 +44,7 @@ namespace iDOLLUSION_alpha_v1
             screenWidth = GraphicsDevice.Viewport.Width;
             screenHeight = GraphicsDevice.Viewport.Height;
             backgroundRect = new Rectangle(0,0,screenWidth,screenHeight);
-            silverButtonRect = new Rectangle(0,0,60,29);
+            silverButtonRect = new Rectangle(230,410,90,49);
             goldButtonRect = new Rectangle(60,0,60,29);
             base.Initialize();
         }
@@ -84,7 +84,7 @@ namespace iDOLLUSION_alpha_v1
                 silverButtonRect.X +=5*modifier1;
                 goldButtonRect.X +=6*modifier2;
                     //handle collisions with walls
-                if (silverButtonRect.X == 1280 || silverButtonRect.X == 0)
+                if (silverButtonRect.X == 220 || silverButtonRect.X == 510)
                 {
                     modifier1 *= -1;
                 }
