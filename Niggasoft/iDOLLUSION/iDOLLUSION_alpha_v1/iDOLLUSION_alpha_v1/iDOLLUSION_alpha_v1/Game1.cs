@@ -27,7 +27,8 @@ namespace iDOLLUSION_alpha_v1
         bool atSplash = true;
         bool atMainMenu = false;
          int directionSilver = 1;
-         int directionGold = 1;         
+         int directionGold = 1;
+         Song mySong;
 
 
         public Game1()
@@ -62,6 +63,12 @@ namespace iDOLLUSION_alpha_v1
             splash = Content.Load<Texture2D>("images/splash");
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
             mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
+            mySong = Content.Load<Song>("sounds/kommSusserTod");
+            MediaPlayer.Play(mySong);
+            MediaPlayer.IsRepeating = true;
+
+
+
         }
         protected override void UnloadContent()
         {
@@ -81,6 +88,8 @@ namespace iDOLLUSION_alpha_v1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+
             spriteBatch.Begin();
             if (atSplash)
             {

@@ -9,3 +9,5 @@ Content\sprites\silverArrowReversed.xnb
 Content\sprites\mouseIcon.xnb
 Content\images\mainmenu.xnb
 Content\fonts\gameFont.xnb
+Content\sounds\kommSusserTod.xnb
+Content\sounds\kommSusserTod.wma
