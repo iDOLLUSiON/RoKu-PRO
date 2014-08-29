@@ -47,7 +47,8 @@ namespace iDOLLUSION_alpha_v1
 
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-                    XMLReader.readText();
+            string toProducer = "ToProducer";
+                    XMLReader.readText(toProducer);
 
         }
         protected override void Initialize()
