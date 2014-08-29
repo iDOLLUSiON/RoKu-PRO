@@ -110,7 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Sparkle.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>

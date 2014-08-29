@@ -40,8 +40,20 @@ if (sparkleTimer > sparkleLimit)
 //CONSTRUCTORS
        public Sparkle()
        {
-            virtual int Next 
-           position.X =
+           int x = 0;
+            Random rnd = new Random();
+           if (rnd.Next(0,2) == 0)  //lower bound is inclusive, upper is exclusive
+           {
+                           x = rnd.Next(25, 380);
+           }
+           else
+           {
+                           x = rnd.Next(900, 1250);
+           }
+
+           int y = rnd.Next(0, 355);
+           position.X = x;
+           position.Y = y;
        }
 
    }
