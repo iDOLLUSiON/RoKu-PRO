@@ -8,7 +8,7 @@ using System.Xml;
 
 public class XMLReader
 {
-      static  string path = @"C:\Users\CJ\Desktop\test.xml";
+    static string path = (Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\test.xml");
         static XmlDocument dialogue = new XmlDocument();
     public static void readText()
     {
