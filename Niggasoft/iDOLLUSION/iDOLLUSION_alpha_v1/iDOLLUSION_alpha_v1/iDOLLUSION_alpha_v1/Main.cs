@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mime;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 using Microsoft.Xna.Framework;
@@ -36,6 +37,7 @@ namespace iDOLLUSION_alpha_v1
         private Vector2 startStringCoord = new Vector2(637, 380);
          Song techworld;
         SoundEffect edenEffect;
+         int startTextBox = 1;
         
          int splashTimer = 0;
         Random rnd = new Random();
@@ -228,11 +230,13 @@ namespace iDOLLUSION_alpha_v1
                 if (buttonStartRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     atMainMenu = false;
+
                 }
                 
             }
             else //past splash and mainmenu
             {
+                //handle textbox
                 spriteBatch.Draw(background, backgroundRect, Color.White);
                 edenEffect.Dispose();
             }

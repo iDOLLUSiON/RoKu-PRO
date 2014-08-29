@@ -13,8 +13,8 @@ namespace iDOLLUSION_alpha_v1
 //fields
          string speakerName;
          string message;
-         Vector2 position = new Vector2(1, 1);
-         Vector2 size = new Vector2((1, 1);)
+         Vector2 position = new Vector2(640, 600);
+         Vector2 size = new Vector2(800, 300);
         public Boolean textBoxIsVisible = false;
         
 //methods
@@ -55,6 +55,11 @@ namespace iDOLLUSION_alpha_v1
         public Vector2 getPosition()
         {
             return (position);
+        }
+
+        public Vector2 getSize()
+        {
+            return (size);
         }
 
         public bool textBoxVisible()
