@@ -15,6 +15,10 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private Texture2D silverButton, goldButton;
+        private SpriteFont gameFont;
+        private Rectangle silverButtonRect, goldButtonRect;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -22,11 +26,15 @@ namespace iDOLLUSION_alpha_v1
         }
         protected override void Initialize()
         {
+            silverButtonRect = new Rectangle(0,0,64,64);
+            goldButtonRect = new Rectangle(50,0,64,64);
             base.Initialize();
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            silverButton = Content.Load <Texture2D> ("sprites/silverButton");
+            goldButton = Content.Load<Texture2D>("sprites/goldButton");
         }
         protected override void UnloadContent()
         {
@@ -39,6 +47,10 @@ namespace iDOLLUSION_alpha_v1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
+            spriteBatch.Draw(silverButton, silverButtonRect,Color.White );
+            spriteBatch.Draw(goldButton, goldButtonRect, Color.White); 
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

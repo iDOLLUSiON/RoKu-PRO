@@ -13,3 +13,8 @@ C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\i
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\JPFont.xnb
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\iDOLLUSION_alpha_v1.exe
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\iDOLLUSION_alpha_v1.pdb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\JPFont.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.Menu.resources
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.csproj.GenerateResource.Cache
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb
+C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb

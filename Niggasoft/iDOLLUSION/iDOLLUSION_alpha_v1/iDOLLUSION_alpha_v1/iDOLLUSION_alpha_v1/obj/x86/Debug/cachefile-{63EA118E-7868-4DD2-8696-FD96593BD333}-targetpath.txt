@@ -1,1 +1,3 @@
 Content\fonts\JPFont.xnb
+Content\sprites\goldButton.xnb
+Content\sprites\silverButton.xnb

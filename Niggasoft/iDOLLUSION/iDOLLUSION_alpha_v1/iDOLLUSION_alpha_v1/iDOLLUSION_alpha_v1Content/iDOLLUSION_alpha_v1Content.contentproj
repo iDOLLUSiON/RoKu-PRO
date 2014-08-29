@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="fonts\SpriteFont1.spritefont">
+    <Compile Include="fonts\gameFont.spritefont">
       <Name>JPFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
@@ -51,15 +51,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\GoldButton.png">
-      <Name>Gold Button</Name>
+    <Compile Include="sprites\goldButton.png">
+      <Name>goldButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="sprites\SilverButton.png">
-      <Name>Silver Button</Name>
+    <Compile Include="sprites\silverButton.png">
+      <Name>silverButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

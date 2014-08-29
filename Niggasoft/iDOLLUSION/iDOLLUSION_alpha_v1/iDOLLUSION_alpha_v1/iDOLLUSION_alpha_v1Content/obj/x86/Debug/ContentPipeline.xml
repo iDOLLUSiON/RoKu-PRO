@@ -1,6 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>fonts\gameFont.spritefont</Source>
+      <Name>fonts\JPFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\JPFont.xnb</Output>
+      <Time>2014-08-28T21:26:56.9999856-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\goldButton.png</Source>
+      <Name>sprites\goldButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldButton.xnb</Output>
+      <Time>2014-08-28T21:40:19.0418597-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\silverButton.png</Source>
+      <Name>sprites\silverButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverButton.xnb</Output>
+      <Time>2014-08-28T21:40:19.0508603-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
@@ -13,6 +40,30 @@
       <OutputDirectory>C:\Users\Xnenai Xyinaa\Desktop\Github C#\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
         <Value>2014-08-13T06:27:41.443529-04:00</Value>
