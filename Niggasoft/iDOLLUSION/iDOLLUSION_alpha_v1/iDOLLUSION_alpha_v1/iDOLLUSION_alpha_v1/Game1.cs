@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -26,6 +27,10 @@ namespace iDOLLUSION_alpha_v1
         }
         protected override void Initialize()
         {
+            graphics.IsFullScreen = false;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
+            graphics.ApplyChanges();
             silverButtonRect = new Rectangle(0,0,64,64);
             goldButtonRect = new Rectangle(50,0,64,64);
             base.Initialize();
