@@ -17,8 +17,8 @@ namespace iDOLLUSION_alpha_v1
        public bool dead = false;
        public int sparkleState = 1;
        protected int sparkleTimer = 0;
-       protected int sparkleLimit = 70;
-      public Sparkle[] sparkles = new Sparkle[20];
+       protected int sparkleLimit = 700;
+      public static Sparkle[] sparkles = new Sparkle[20];
          int i = 0;
 
         
@@ -29,7 +29,6 @@ namespace iDOLLUSION_alpha_v1
                return;
            }
            sparkleTimer++;
-        spriteBatch.Draw(Game1.sparkle, this.position, Color.White);
 
 if (sparkleTimer > sparkleLimit)
 {

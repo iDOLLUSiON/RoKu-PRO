@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Principal;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -154,18 +155,16 @@ namespace iDOLLUSION_alpha_v1
                     spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                     spriteBatch.Draw(button, buttonExitRect, Color.White);
                     spriteBatch.DrawString(gameFont, "Exit", exitStringCoord, Color.Brown ); //TODO change font size, move dynamically
-                if (rnd.Next(0, 31) == 0)
+                if (rnd.Next(0, 1) == 0)
                 { 
                     new Sparkle();
                 }
-                    
+ /////// make buttons grow and shrink                   
                 if (buttonSizeDir ==1)
                 {
-           //      buttonExitRect.Height += 1;
                     exitStringCoord.X += 2;
                 buttonExitRect.Width += 2;
                 buttonExitRect.X += 1;
-                //    buttonExitRect.Y += 1;
                     if (buttonExitRect.Width > 310)
                     {
                         buttonSizeDir = 0;
@@ -173,20 +172,34 @@ namespace iDOLLUSION_alpha_v1
                  }
                 if (buttonSizeDir == 0)
                 {
-          //      buttonExitRect.Height -= 1;
-                    exitStringCoord.X -=2;
+                   exitStringCoord.X -=2;
                 buttonExitRect.Width -= 2;
                 buttonExitRect.X -= 1;
-            //    buttonExitRect.Y -= 1;
                     if (buttonExitRect.Width < 290)
                     {
                         buttonSizeDir = 1;
                     }
                 }
-                foreach (Sparkle count in Sparkle.sparkles)
+////////
+             /*   foreach (Sparkle sparkle in Sparkle.sparkles)
                 {
-                    Sparkle.this.updateLifespan();  //update lifespan of each sparkle every frame
+                    element.updateLifespan();  //update lifespan of each sparkle every frame
 
+                }*/
+                int numSparkles = Sparkle.sparkles.Length;
+                for (int i = 0; i != numSparkles; i++)
+                {
+                    Sparkle thisSparkle = Sparkle.sparkles[i];
+                    if (thisSparkle != null)
+                    {
+
+                        thisSparkle.updateLifespan();
+                        spriteBatch.Draw(sparkle, thisSparkle.position, Color.White);
+                        if (i == numSparkles)
+                        {
+                            i = 0;
+                        }
+                    }
                 }
                 
                
