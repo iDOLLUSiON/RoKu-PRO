@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -10,6 +11,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Color = Microsoft.Xna.Framework.Color;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace iDOLLUSION_alpha_v1
 {
@@ -17,11 +20,13 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D background, splash, silverButton, goldButton;
+        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR;
         private SpriteFont gameFont;
         private Rectangle backgroundRect, silverButtonRect, goldButtonRect;
         private int screenWidth, screenHeight;
-        bool atSplash = true;            
+        bool atSplash = true;
+         int modifier1 = 1;
+         int modifier2 = 1;         
 
 
         public Game1()
@@ -48,6 +53,8 @@ namespace iDOLLUSION_alpha_v1
             spriteBatch = new SpriteBatch(GraphicsDevice);
             silverButton = Content.Load <Texture2D> ("sprites/silverArrow");
             goldButton = Content.Load<Texture2D>("sprites/goldenArrow");
+            silverButtonR = Content.Load <Texture2D> ("sprites/silverArrowReversed");
+            goldButtonR = Content.Load<Texture2D>("sprites/goldenArrowReversed");
             background = Content.Load<Texture2D>("images/background");
             splash = Content.Load<Texture2D>("images/splash");
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
@@ -73,12 +80,40 @@ namespace iDOLLUSION_alpha_v1
             if (atSplash)
             {
                 spriteBatch.Draw(splash, backgroundRect, Color.White);
+                silverButtonRect.X +=5*modifier1;
+                goldButtonRect.X +=6*modifier2;
+                    //handle collisions with walls
+                if (silverButtonRect.X == 1280 || silverButtonRect.X == 0)
+                {
+                    modifier1 *= -1;
+                }
+                if (goldButtonRect.X == 1280 || goldButtonRect.X == 0)
+                {
+                    modifier2 *= -1;
+                }
             }
-            else
+            if (!atSplash)
             {
                 spriteBatch.Draw(background, backgroundRect, Color.White);
             }
-            spriteBatch.Draw(silverButton, silverButtonRect,Color.White );
+            if (modifier1 > 0)
+            {
+                spriteBatch.Draw(silverButton, silverButtonRect, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(silverButtonR, silverButtonRect, Color.White);
+            }
+            if (modifier2 > 0)
+            {
+                spriteBatch.Draw(goldButton, goldButtonRect, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(goldButtonR, goldButtonRect, Color.White);
+            }
+
+             spriteBatch.DrawString(gameFont, Mouse.GetState().X.ToString() + " " + Mouse.GetState().Y.ToString(), new Vector2(0,100),Color.White);
             spriteBatch.Draw(goldButton, goldButtonRect, Color.White);
             spriteBatch.DrawString(gameFont, "Sample text", new Vector2(0, 40), Color.White);
             spriteBatch.End();

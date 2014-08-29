@@ -38,13 +38,49 @@
       <Time>2014-08-28T22:29:11.2061843-04:00</Time>
     </Item>
     <Item>
+      <Source>sprites\goldenArrow.png</Source>
+      <Name>sprites\goldenArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldenArrow.xnb</Output>
+      <Time>2014-08-28T22:41:44.5532733-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\silverArrow.png</Source>
+      <Name>sprites\silverArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverArrow.xnb</Output>
+      <Time>2014-08-28T22:41:44.5552734-04:00</Time>
+    </Item>
+    <Item>
       <Source>fonts\gameFont.spritefont</Source>
-      <Name>fonts\JPFont</Name>
+      <Name>fonts\gameFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\JPFont.xnb</Output>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\fonts\gameFont.xnb</Output>
       <Time>2014-08-28T22:29:11.183183-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\goldenArrowReversed.png</Source>
+      <Name>sprites\goldenArrowReversed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\goldenArrowReversed.xnb</Output>
+      <Time>2014-08-28T22:54:47.880077-04:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\silverArrowReversed.png</Source>
+      <Name>sprites\silverArrowReversed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sprites\silverArrowReversed.xnb</Output>
+      <Time>2014-08-28T22:54:47.8840772-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
