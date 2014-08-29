@@ -18,13 +18,13 @@ using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace iDOLLUSION_alpha_v1
 {
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class Main : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
       public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle;
       public    SpriteFont gameFont;
-      public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect;
+      public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect;
         private int screenWidth, screenHeight;
 //public variables     
          bool atSplash = true;
@@ -32,7 +32,9 @@ namespace iDOLLUSION_alpha_v1
          int directionSilver = 1;
          int directionGold = 1;
          int buttonSizeDir = 1;
-        private Vector2 exitStringCoord = new Vector2(637, 420);
+        private Vector2 exitStringCoord = new Vector2(637, 520);
+        private Vector2 startStringCoord = new Vector2(637, 380);
+
      //    Song eden;
          Song techworld;
         SoundEffect edenEffect;
@@ -42,7 +44,7 @@ namespace iDOLLUSION_alpha_v1
     //testing
 
 
-        public Game1()
+        public Main()
         {
 
             graphics = new GraphicsDeviceManager(this);
@@ -63,7 +65,8 @@ namespace iDOLLUSION_alpha_v1
             mainmenuRect = new Rectangle(0,0,screenWidth,screenHeight);
             silverButtonRect = new Rectangle(230,410,90,49);
             goldButtonRect = new Rectangle(60,0,60,29);
-            buttonExitRect = new Rectangle(510, 380, 300, 100);
+            buttonExitRect = new Rectangle(510, 500, 300, 100);
+            buttonStartRect = new Rectangle(510, 360, 300, 100);
             base.Initialize();
         }
         protected override void LoadContent()
@@ -131,7 +134,7 @@ namespace iDOLLUSION_alpha_v1
             if (atSplash)
             {
                 splashTimer++;
-                if (splashTimer > 1000)
+                if (splashTimer > 2000)
                 {
                     atSplash = false;
                     atMainMenu = true;
@@ -159,7 +162,10 @@ namespace iDOLLUSION_alpha_v1
                 atSplash = false;
                     spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                     spriteBatch.Draw(button, buttonExitRect, Color.White);
+                    spriteBatch.Draw(button, buttonStartRect, Color.White);
                     spriteBatch.DrawString(gameFont, "Exit", exitStringCoord, Color.Brown ); //TODO change font size, move dynamically
+                    spriteBatch.DrawString(gameFont, "Start", startStringCoord, Color.DarkGoldenrod ); //TODO change font size, move dynamically
+
                 if (rnd.Next(0, 1) == 0)
                 { 
                     new Sparkle();
@@ -170,6 +176,9 @@ namespace iDOLLUSION_alpha_v1
                     exitStringCoord.X += 2;
                 buttonExitRect.Width += 2;
                 buttonExitRect.X += 1;
+                   startStringCoord.X -= 2;
+                    buttonStartRect.X -= 1;
+                    buttonStartRect.Width -= 2;
                     if (buttonExitRect.Width > 310)
                     {
                         buttonSizeDir = 0;
@@ -180,16 +189,16 @@ namespace iDOLLUSION_alpha_v1
                    exitStringCoord.X -=2;
                 buttonExitRect.Width -= 2;
                 buttonExitRect.X -= 1;
+                    startStringCoord.X += 2;
+                    buttonStartRect.X += 1;
+                    buttonStartRect.Width += 2;
                     if (buttonExitRect.Width < 290)
                     {
                         buttonSizeDir = 1;
                     }
                 }
 ////////
-             /*   foreach (Sparkle sparkle in Sparkle.sparkles)
-                {
-                    element.updateLifespan();  //update lifespan of each sparkle every frame
-                }*/
+
                 int numSparkles = Sparkle.sparkles.Length;
                 for (int i = 0; i != numSparkles; i++)
                 {
@@ -205,7 +214,7 @@ namespace iDOLLUSION_alpha_v1
                     }
                     else
                     {
-                        spriteBatch.DrawString(gameFont,  "Not sparkly at all..." , new Vector2(400, 400), Color.Red);
+                        spriteBatch.DrawString(gameFont,  "Not sparkly at all..." , new Vector2(200, 400), Color.Red);
                     }
                 }
                 
