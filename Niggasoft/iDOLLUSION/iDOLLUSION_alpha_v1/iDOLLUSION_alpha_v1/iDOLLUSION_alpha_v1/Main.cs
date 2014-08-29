@@ -25,7 +25,7 @@ namespace iDOLLUSION_alpha_v1
         SpriteBatch spriteBatch;
       public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected;
       public    SpriteFont gameFont;
-      public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect;
+      public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect;
         private int screenWidth, screenHeight;
 //public variables     
          bool atSplash = true;
@@ -70,6 +70,9 @@ namespace iDOLLUSION_alpha_v1
             goldButtonRect = new Rectangle(60,0,60,29);
             buttonExitRect = new Rectangle(510, 500, 300, 100);
             buttonStartRect = new Rectangle(510, 360, 300, 100);
+            character1Rect = new Rectangle(200, 300, 300, 200);
+            character2Rect = new Rectangle(800, 300, 300, 200);
+
             base.Initialize();
         }
         protected override void LoadContent()
@@ -244,6 +247,26 @@ namespace iDOLLUSION_alpha_v1
             if (atCharacterSelection)
             {
               spriteBatch.Draw(characterSelection, backgroundRect, Color.White);
+                if (character1Rect.Contains(mousePosition))
+                {
+                    spriteBatch.Draw(characterSelected, character1Rect, Color.White);
+                }
+                else
+                {
+                  spriteBatch.Draw(characterUnselected, character1Rect, Color.White);
+
+                }
+                if (character2Rect.Contains(mousePosition))
+                {
+                    spriteBatch.Draw(characterSelected, character2Rect, Color.White);
+                }
+                else
+                {
+                  spriteBatch.Draw(characterUnselected, character2Rect, Color.White);
+
+                }
+
+
 
             }
             else if (!atMainMenu && !atSplash && !atCharacterSelection) //past splash and mainmenu
