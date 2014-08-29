@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 
 namespace iDOLLUSION_alpha_v1
     {
    public class Sparkle
    {
+       private SpriteBatch spriteBatch;
        public Vector2 position ;
-       protected int lifespan = 300;
+       protected int lifespan = 3000;
        protected int lifespanTimer = 0;
        public bool dead = false;
        public int sparkleState = 1;
        protected int sparkleTimer = 0;
        protected int sparkleLimit = 70;
+      public Sparkle[] sparkles = new Sparkle[20];
+         int i = 0;
+
         
        public void updateLifespan()
        {
@@ -23,6 +29,8 @@ namespace iDOLLUSION_alpha_v1
                return;
            }
            sparkleTimer++;
+        spriteBatch.Draw(Game1.sparkle, this.position, Color.White);
+
 if (sparkleTimer > sparkleLimit)
 {
     sparkleTimer = 0;
@@ -51,7 +59,7 @@ if (sparkleTimer > sparkleLimit)
                            x = rnd.Next(900, 1250);
            }
 
-           int y = rnd.Next(0, 355);
+           int y = rnd.Next(0, 335);
            position.X = x;
            position.Y = y;
        }

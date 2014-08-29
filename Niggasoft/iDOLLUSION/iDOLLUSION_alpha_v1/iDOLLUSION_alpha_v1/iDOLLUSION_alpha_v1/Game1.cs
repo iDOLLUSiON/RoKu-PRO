@@ -21,9 +21,9 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle;
-        private SpriteFont gameFont;
-        private Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect;
+      public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle;
+     public    SpriteFont gameFont;
+     public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect;
         private int screenWidth, screenHeight;
         bool atSplash = true;
         bool atMainMenu = false;
@@ -36,6 +36,7 @@ namespace iDOLLUSION_alpha_v1
         SoundEffect edenEffect;
          int splashTimer = 0;
         Random rnd = new Random();
+    // object arrays
 
 
         public Game1()
@@ -154,10 +155,8 @@ namespace iDOLLUSION_alpha_v1
                     spriteBatch.Draw(button, buttonExitRect, Color.White);
                     spriteBatch.DrawString(gameFont, "Exit", exitStringCoord, Color.Brown ); //TODO change font size, move dynamically
                 if (rnd.Next(0, 31) == 0)
-                {
-                    Sparkle rndSparkle = new Sparkle();
-                    spriteBatch.Draw(sparkle, rndSparkle.position, Color.White);
-
+                { 
+                    new Sparkle();
                 }
                     
                 if (buttonSizeDir ==1)
@@ -184,7 +183,11 @@ namespace iDOLLUSION_alpha_v1
                         buttonSizeDir = 1;
                     }
                 }
+                foreach (Sparkle count in Sparkle.sparkles)
+                {
+                    Sparkle.this.updateLifespan();  //update lifespan of each sparkle every frame
 
+                }
                 
                
                 if (MediaPlayer.IsRepeating)
