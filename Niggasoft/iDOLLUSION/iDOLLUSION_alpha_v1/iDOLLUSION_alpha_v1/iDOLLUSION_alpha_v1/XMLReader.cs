@@ -40,10 +40,10 @@ public class XMLReader
         {
             try
             {
-                string targetNode = "/" + message;
-                string name2 = node.SelectSingleNode(targetNode).InnerText;
-                 Console.WriteLine(name2);
-                 Console.WriteLine(targetNode);
+               
+               string name2 = node.SelectSingleNode(message).InnerText;
+                Console.WriteLine(name2);
+                 Console.WriteLine(message);
 
 
             }
