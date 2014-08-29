@@ -88,7 +88,7 @@ namespace iDOLLUSION_alpha_v1
                 {
                     modifier1 *= -1;
                 }
-                if (goldButtonRect.X == 1280 || goldButtonRect.X == 0)
+                if (goldButtonRect.X == 0 || goldButtonRect.X + goldButtonR.Width > 1280)
                 {
                     modifier2 *= -1;
                 }
