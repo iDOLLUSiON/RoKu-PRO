@@ -110,6 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="events\event1.cs" />
     <Compile Include="phaseClock.cs" />
     <Compile Include="Draw.cs" />
     <Compile Include="TextBox.cs" />
@@ -123,7 +124,7 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Launcher.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="TextReader.cs" />
   </ItemGroup>
