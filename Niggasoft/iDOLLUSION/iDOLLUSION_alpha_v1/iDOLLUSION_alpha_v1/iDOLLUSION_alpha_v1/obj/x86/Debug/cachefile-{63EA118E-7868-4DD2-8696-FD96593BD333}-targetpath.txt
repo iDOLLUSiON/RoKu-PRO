@@ -19,3 +19,4 @@ Content\images\characterSelection.xnb
 Content\sprites\characterUnselected.xnb
 Content\images\mainMap\collisionMap.xnb
 Content\images\mainMap\mainMap.xnb
+Content\images\characters\producer.xnb

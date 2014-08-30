@@ -23,10 +23,13 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-      public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap;
+      public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
       public    SpriteFont gameFont;
-      public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect;
+      public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
         private int screenWidth, screenHeight;
+        private const uint chinpo = 4278190335;
+        private const uint grass = 4278190080;
+        private const uint loli = 4294901760;
 //public variables     
 
          int directionSilver = 1;
@@ -84,6 +87,7 @@ namespace iDOLLUSION_alpha_v1
             buttonStartRect = new Rectangle(510, 360, 300, 100);
             character1Rect = new Rectangle(200, 300, 300, 200);
             character2Rect = new Rectangle(800, 300, 300, 200);
+            producerRect = new Rectangle(570, 660, 50, 50);
 
             base.Initialize();
         }
@@ -109,6 +113,8 @@ namespace iDOLLUSION_alpha_v1
             nocturneEffect = Content.Load<SoundEffect>("sounds/nocturne");
             collisionMap = Content.Load<Texture2D>("images/mainMap/collisionMap");
             mainMap = Content.Load<Texture2D>("images/mainMap/mainMap");
+            producer = Content.Load<Texture2D>("images/characters/producer");
+
 
             MediaPlayer.Play(techworld);
             MediaPlayer.IsRepeating = true;
@@ -123,6 +129,16 @@ namespace iDOLLUSION_alpha_v1
 //GAME UPDATE LOOP HERE
         protected override void Update(GameTime gameTime)
         {
+            MouseState ms = Mouse.GetState();
+            string sColorval = "";
+            uint[] myUint = new uint[1];
+if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.Height)
+            {
+                collisionMap.GetData(0, new Rectangle(ms.X, ms.Y, 1, 1), myUint, 0, 1);
+                sColorval = myUint[0].ToString();
+            }
+            Window.Title = ms.X.ToString() + "," + ms.Y.ToString() + " - " + sColorval;
+
  
 
             
@@ -300,6 +316,7 @@ namespace iDOLLUSION_alpha_v1
                 //draw main navigational map and invisible collision map
                 spriteBatch.Draw(collisionMap, new Rectangle(0,0,screenWidth,screenHeight), Color.White);
                 spriteBatch.Draw(mainMap, backgroundRect, Color.White);
+                spriteBatch.Draw(producer, producerRect, Color.White);
 
                 edenEffect.Dispose();
                 }

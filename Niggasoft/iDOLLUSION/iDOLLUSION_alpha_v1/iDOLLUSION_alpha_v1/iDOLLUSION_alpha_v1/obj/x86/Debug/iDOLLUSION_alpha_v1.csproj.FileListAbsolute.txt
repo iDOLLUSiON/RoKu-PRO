@@ -140,3 +140,6 @@ C:\Users\Andrew\Downloads\idollusion\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_al
 C:\Users\Andrew\Downloads\idollusion\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sounds\techworld.wma
 C:\Users\Andrew\Downloads\idollusion\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\iDOLLUSION_alpha_v1.exe
 C:\Users\Andrew\Downloads\idollusion\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\iDOLLUSION_alpha_v1.pdb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\mainMap\collisionMap.xnb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\mainMap\mainMap.xnb
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\characters\producer.xnb
