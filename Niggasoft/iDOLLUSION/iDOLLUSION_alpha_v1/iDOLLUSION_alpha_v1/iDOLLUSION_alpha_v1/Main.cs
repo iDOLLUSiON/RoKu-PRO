@@ -61,6 +61,15 @@ namespace iDOLLUSION_alpha_v1
             Studio
         };
 
+        public enum Idols
+        {
+            Haruhi,
+            Sayaka,
+            None
+        };
+
+        private Idols chosenIdol = Idols.None;
+
     Location currentLocation = Location.Splash;
 
         // object arrays
@@ -170,18 +179,20 @@ if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.H
                     }
                 }
 // collision handling           
-                uint currentArea = road;
+                uint currentArea = chinpo;
 uint[] myUint = new uint[1];
             if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.Height)
             {
-                collisionMap.GetData(0, new Rectangle(ms.X, ms.Y, 1, 1), myUint, 0, 1);
+                collisionMap.GetData(0, new Rectangle(producerX, producerY, 1, 1), myUint, 0, 1);
                 currentArea = myUint[0];
             }
             switch (currentArea)
                 {
                 case chinpo:
                     {
-                        Exit();
+                        currentLocation = Location.Splash;
+          producerX = 570;
+          producerY = 660;
                         break;
                     }
 default:
@@ -199,7 +210,11 @@ default:
             if (currentLocation == Location.Splash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
                 currentLocation++;
-                edenEffect.Play();
+if (!edenEffect.IsDisposed)
+                {
+                                    edenEffect.Play();
+                }
+
             }
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height);
             base.Update(gameTime);
@@ -258,7 +273,8 @@ default:
             else if (currentLocation == Location.MainMenu)
             {
                 MediaPlayer.Stop();
-                techworld.Dispose();
+               techworld.Dispose();
+    
                     spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                     spriteBatch.Draw(button, buttonExitRect, Color.White);
                     spriteBatch.Draw(button, buttonStartRect, Color.White);
@@ -325,7 +341,14 @@ default:
                 }
                 if (buttonStartRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
-                    currentLocation++;
+                    if (chosenIdol == Idols.None)
+                    {
+                        currentLocation++;
+                    }
+                    else
+                    {
+                        currentLocation += 2;
+                    }
 
                 }
                 
@@ -354,10 +377,12 @@ default:
 
                 if (character2Rect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
+                    chosenIdol = Idols.Haruhi;
                     currentLocation++;
                 }
                 if (character1Rect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
+                    chosenIdol = Idols.Sayaka;
                     currentLocation++;
                 }
 
