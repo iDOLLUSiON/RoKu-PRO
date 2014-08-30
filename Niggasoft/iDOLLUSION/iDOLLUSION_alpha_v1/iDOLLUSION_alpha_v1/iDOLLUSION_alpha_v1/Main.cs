@@ -181,7 +181,7 @@ if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.H
 // collision handling           
                 uint currentArea = chinpo;
 uint[] myUint = new uint[1];
-            if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.Height)
+            if (producerX >= 0 && producerX < collisionMap.Width && producerY >= 0 && producerY < collisionMap.Height)
             {
                 collisionMap.GetData(0, new Rectangle(producerX, producerY, 1, 1), myUint, 0, 1);
                 currentArea = myUint[0];
