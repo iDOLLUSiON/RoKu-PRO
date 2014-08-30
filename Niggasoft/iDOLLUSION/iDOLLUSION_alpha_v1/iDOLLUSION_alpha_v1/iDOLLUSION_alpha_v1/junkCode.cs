@@ -7,6 +7,9 @@ namespace iDOLLUSION_alpha_v1
     {
     class junkCode
         {
+
+
+
 //Junk code that we need to hold onto for hte future can be stored here with a description of how to use it and what it does. Should let us clean up the other classes
 
 
@@ -57,5 +60,23 @@ if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.H
 
 
 
-        }
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   }
     }
