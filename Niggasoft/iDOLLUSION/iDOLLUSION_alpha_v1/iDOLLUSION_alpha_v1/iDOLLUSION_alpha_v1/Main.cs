@@ -23,7 +23,7 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-      public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected;
+      public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap;
       public    SpriteFont gameFont;
       public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect;
         private int screenWidth, screenHeight;
@@ -107,6 +107,9 @@ namespace iDOLLUSION_alpha_v1
             edenEffect = Content.Load<SoundEffect>("sounds/eden");
             techworld = Content.Load<Song>("sounds/techworld");
             nocturneEffect = Content.Load<SoundEffect>("sounds/nocturne");
+            collisionMap = Content.Load<Texture2D>("images/mainMap/collisionMap");
+            mainMap = Content.Load<Texture2D>("images/mainMap/mainMap");
+
             MediaPlayer.Play(techworld);
             MediaPlayer.IsRepeating = true;
 
@@ -116,6 +119,8 @@ namespace iDOLLUSION_alpha_v1
         protected override void UnloadContent()
         {
         }
+
+//GAME UPDATE LOOP HERE
         protected override void Update(GameTime gameTime)
         {
  
@@ -130,6 +135,9 @@ namespace iDOLLUSION_alpha_v1
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height);
             base.Update(gameTime);
         }
+
+
+//DRAW LOOP HERE
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -289,8 +297,10 @@ namespace iDOLLUSION_alpha_v1
             else if (currentLocation == Location.MainMap) //past splash and mainmenu
                 {
                     
-                //handle textbox
-                spriteBatch.Draw(background, backgroundRect, Color.White);
+                //draw main navigational map and invisible collision map
+                spriteBatch.Draw(collisionMap, new Rectangle(0,0,screenWidth,screenHeight), Color.White);
+                spriteBatch.Draw(mainMap, backgroundRect, Color.White);
+
                 edenEffect.Dispose();
                 }
             spriteBatch.Draw(mouseIcon, mouseIconRect, Color.White);
