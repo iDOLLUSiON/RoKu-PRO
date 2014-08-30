@@ -28,26 +28,21 @@ namespace iDOLLUSION_alpha_v1
       public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
         private int screenWidth, screenHeight;
 
-//These are the values for the colors on the collision map, used for determing what a character is colliding with.
-        private const uint chinpo = 4278190335;
-        private const uint grass = 4278190080;
-        private const uint loli = 4294901760;
-        private const uint road = 4280744959;
 
-//determines the direction of the arrows on splash screen. Needs cleaning
+
+//determines the direction of the arrows on splash screen. Needs cleaning. Move to seperate class?
          int directionSilver = 1;
          int directionGold = 1;
 
 
 //Sound Effects and Songs are declared here
-
          SoundEffect edenEffect, nocturneEffect;
          Song techworld;
 
 //default producer location. Theres a better way to do this
     static  int producerX = 570;
     static  int producerY = 660;
-    private Vector2 producerLocation =new Vector2(producerX, producerY);
+   // private Vector2 producerLocation =new Vector2(producerX, producerY);
 
 
 //Main Menu button location stuff
@@ -58,13 +53,13 @@ int buttonSizeDir = 1;
 //Project versino number, for version control. Just forget about it for now
 public double VERSION = .01;  
 
-        
-         int splashTimer = 0;
-        Random rnd = new Random();
+         
+int splashTimer = 0;
+ Random rnd = new Random();
 
 
 //ENUMS GO HERE
-        public enum Location  //Which screen to display.  Every additional location needs an entry
+        public  enum Scene  //Which screen to display.  Every additional location needs an entry
         {
             Splash, //Progression through menu screens is handled via currentLocation++;
             MainMenu,
@@ -75,6 +70,9 @@ public double VERSION = .01;
             Studio
         };
 
+    public static Scene currentScene = Scene.Splash; //This sets the first screen displayed as the Splash screen
+
+
         public enum Idols  //Pick a character, any character. These are just placeholder names
         {
             Haruhi,
@@ -84,10 +82,68 @@ public double VERSION = .01;
         private Idols chosenIdol = Idols.None;  //this allows us to bring up the character selection screen only once
 
 
-    Location currentLocation = Location.Splash; //This sets the first screen displayed as the Splash screen
 
         // object arrays
     //testing
+
+//PUBLIC METHODS
+        public static int getProducer(string c)
+        {
+        switch (c)
+            {
+            case ("X"):
+                    {
+                    return producerX;
+                    }
+default:
+                {
+                    return producerY;
+                }
+            }
+        }
+
+
+        public static void setProducerLocation(int x, int y)
+        {
+            producerX = x;
+            producerY = y;
+        }
+
+
+
+        public  void setGameScreen(Scene scene)
+        {
+            if (currentScene != scene)
+            {
+                if (scene == Scene.CharacterSelection && chosenIdol != Idols.None)
+                {
+                    return;
+                }
+                else
+                {
+                    currentScene = scene;
+                    Collision.resetProducerLocation();
+                }
+            }
+            return;
+        }
+
+        public  Scene getCurrentScreen()
+        {
+            return (currentScene);
+        }
+
+
+
+
+
+
+/////////////////////////////////////////////
+
+
+
+
+
 
 
         public Main()
@@ -159,70 +215,41 @@ public double VERSION = .01;
         {
             KeyboardState ks = Keyboard.GetState();
             MouseState ms = Mouse.GetState();
-            if (currentLocation == Location.MainMap)
+
+
+
+            if (currentScene == Scene.MainMap)
             {
                 //movement controls for main map go here
                 if (ks != null)
                 {
                     int movementSpeed = 7;
+                    Vector2 producerShift = new Vector2(0,0);
                     if(ks.IsKeyDown(Keys.W))
                     {
-                        producerY-=movementSpeed;
+                        producerShift.Y-=movementSpeed;
                     }
                     if(ks.IsKeyDown(Keys.S))
                     {
-                        producerY+=movementSpeed;
+                        producerShift.Y+=movementSpeed;
                     }
                     if(ks.IsKeyDown(Keys.A))
                     {
-                        producerX-=movementSpeed;
+                        producerShift.X-=movementSpeed;
                     }
                     if(ks.IsKeyDown(Keys.D))
                     {
-                        producerX+=movementSpeed;
+                        producerShift.X+=movementSpeed;
                     }
+                    Collision.processMovement(producerShift);
                 }
-
-// collision handling           
-                uint currentArea = road; //This can technically be set to anything since it will be overwritten in just a few lines.
-uint[] myUint = new uint[1];
-            if (producerX >= 0 && producerX < collisionMap.Width && producerY >= 0 && producerY < collisionMap.Height)
-            {
-                collisionMap.GetData(0, new Rectangle(producerX, producerY, 1, 1), myUint, 0, 1);
-                currentArea = myUint[0];
-            }
-
-
-            switch (currentArea)  //Switch block for checking collisions
-                {
-                case chinpo: // If in contact with chinpo building
-                    {
-                        currentLocation = Location.Splash;  //returns the player to splash screen and resets position.  Used for testing, will be removed later
-          producerX = 570;
-          producerY = 660;
-                        break;
-                    }
-                case grass:    //Player should not be able to enter grass
-                        // add rebound code
-                        break;
-                case loli:
-                        break;
-
-            default:
-                        break;
-                }
-
-
-
-
-
             }
 
             
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
-            if (currentLocation == Location.Splash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
+            if (currentScene == Scene.Splash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
-                currentLocation++;   //Clicking on teh splash proceeds tothe next screen
+                currentScene++;   //Clicking on teh splash proceeds tothe next screen
 
 if (!edenEffect.IsDisposed) //check if already unloaded, if not play, otherwise, reload
                 {
@@ -247,7 +274,7 @@ else
 
         Point mousePosition = new Point(mouseState.X, mouseState.Y);
             spriteBatch.Begin();
-            if (currentLocation == Location.Splash) //SPLASH DRAW LOOP
+            if (currentScene == Scene.Splash) //SPLASH DRAW LOOP
             {
                 spriteBatch.Draw(splash, backgroundRect, Color.White);
                 silverButtonRect.X += 5*directionSilver;
@@ -268,7 +295,7 @@ else
    splashTimer++;     //Automatically proceed to main menu after a time
                 if (splashTimer > 2000)
                 {
-                    currentLocation++;
+                    currentScene++;
                     splashTimer = 0;
                     edenEffect.Play();
                 }
@@ -293,7 +320,7 @@ else
 ////////////////////////////////////////////////////////////////////////////////////
 /// 
 /// 
-            else if (currentLocation == Location.MainMenu) //MAIN MENU DRAW LOOP
+            else if (currentScene == Scene.MainMenu) //MAIN MENU DRAW LOOP
             {
                 MediaPlayer.Stop();
                 techworld.Dispose();
@@ -345,11 +372,11 @@ else
                 {
                     if (chosenIdol == Idols.None)
                     {
-                        currentLocation++;
+                        currentScene++;
                     }
                     else
                     {
-                        currentLocation += 2;
+                        currentScene += 2;
                     }
 
                 }
@@ -357,7 +384,7 @@ else
             }
 /////////////////////////////////////////////////////////////////////////
  
-            if (currentLocation == Location.CharacterSelection)  //CHARACTER SELECTION DRAW LOOP
+            if (currentScene == Scene.CharacterSelection)  //CHARACTER SELECTION DRAW LOOP
             {
               spriteBatch.Draw(characterSelection, backgroundRect, Color.White);// Draw appropriate background
 
@@ -385,12 +412,12 @@ else
                 if (character2Rect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     chosenIdol = Idols.Haruhi;
-                    currentLocation++;
+                    currentScene++;
                 }
                 if (character1Rect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     chosenIdol = Idols.Sayaka;
-                    currentLocation++;
+                    currentScene++;
                 }
 
 
@@ -398,7 +425,7 @@ else
 /////////////////////////////////////////////////////////////////////////
 
 
-            else if (currentLocation == Location.MainMap) //MAIN MAP DRAW LOOP
+            else if (currentScene == Scene.MainMap) //MAIN MAP DRAW LOOP
                 {
                     
                 //draw main navigational map and invisible collision map.  Remember to go in order [back to front}
