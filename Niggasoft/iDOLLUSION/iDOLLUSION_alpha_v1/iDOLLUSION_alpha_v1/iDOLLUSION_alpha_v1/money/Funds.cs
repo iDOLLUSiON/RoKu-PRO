@@ -7,14 +7,14 @@ namespace iDOLLUSION_alpha_v1
 	{
     static class Funds // the money the company has, not your personal wages
 	{
-	        private static int peronsalFunds = 0; //starting funds
+	        private static int personalFunds = 0; //starting funds
             private static int companyFunds = 0;
 	        public static void setFunds(int val, string accType) 
             {
                 switch (accType)
                 {
                     case "personal":
-                        peronsalFunds = val;
+                        personalFunds = val;
                         break;
 
                     case "company":
@@ -28,7 +28,7 @@ namespace iDOLLUSION_alpha_v1
                 switch (accType)
                 {
                     case "personal":
-                        return peronsalFunds;
+                        return personalFunds;
 
                     case "company":
                         return companyFunds;
@@ -41,7 +41,7 @@ namespace iDOLLUSION_alpha_v1
                 switch (accType)
                 {
                     case "personal":
-                        peronsalFunds += val;
+                        personalFunds += val;
                         break;
 
                     case "company":
@@ -49,24 +49,27 @@ namespace iDOLLUSION_alpha_v1
                         break;
                 }
 	        }
-        }
             public static string fundsToString(string accType)
             {
+                string funds = null;
                 switch(accType)
+                {
                     case "personal":
-                        string funds = personalFunds.ToString();
+                        funds = personalFunds.ToString();
                         break;
                     case "company":
-                        string funds = companyFunds.ToString()
+                        funds = companyFunds.ToString();
                         break;
+                }
+                int length = funds.Length;
 
-                int length = funds.Length; 
-
-                for(int i = 1, length/3>i, i++)
+                for (int i = 1; length / 3 > i; i++)
                 {
-                    funds.Insert(i*3+(i-1),",");
+                    funds.Insert(i * 3 + (i - 1), ",");
                 }
                 return funds;  
+
+        }
 
 		}
 	}
