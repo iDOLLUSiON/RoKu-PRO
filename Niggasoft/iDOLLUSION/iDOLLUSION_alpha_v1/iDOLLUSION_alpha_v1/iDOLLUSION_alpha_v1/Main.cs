@@ -28,9 +28,7 @@ namespace iDOLLUSION_alpha_v1
       public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect;
         private int screenWidth, screenHeight;
 //public variables     
-         bool atSplash = true;
-         bool atMainMenu = false;
-        private bool atCharacterSelection = false;
+
          int directionSilver = 1;
          int directionGold = 1;
          int buttonSizeDir = 1;
@@ -39,11 +37,25 @@ namespace iDOLLUSION_alpha_v1
          Song techworld;
         SoundEffect edenEffect;
          SoundEffect nocturneEffect;
-         int startTextBox = 1;
+        public double VERSION = .01;  //VERSION NUMBER GOES HERE
         
          int splashTimer = 0;
         Random rnd = new Random();
-    // object arrays
+
+        public enum Location
+        {
+            Splash,
+            MainMenu,
+            CharacterSelection,
+            MainMap,
+            Home,
+            Office,
+            Studio
+        };
+
+    Location currentLocation = Location.Splash;
+
+        // object arrays
     //testing
 
 
@@ -110,10 +122,9 @@ namespace iDOLLUSION_alpha_v1
 
             
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
-            if (atSplash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
+            if (currentLocation == Location.Splash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
-                atSplash = false;
-                atMainMenu = true;
+                currentLocation++;
                 edenEffect.Play();
             }
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height);
@@ -126,7 +137,7 @@ namespace iDOLLUSION_alpha_v1
        var mouseState = Mouse.GetState();
         Point mousePosition = new Point(mouseState.X, mouseState.Y);
             spriteBatch.Begin();
-            if (atSplash)
+            if (currentLocation == Location.Splash)
             {
                 spriteBatch.Draw(splash, backgroundRect, Color.White);
                 silverButtonRect.X +=5*directionSilver;
@@ -141,13 +152,13 @@ namespace iDOLLUSION_alpha_v1
                     directionGold *= -1;
                 }
             }
-            if (atSplash)
+            if (currentLocation == Location.Splash)
             {
+                spriteBatch.DrawString(gameFont,"Ver: "+ VERSION, new Vector2(0,690), Color.White );
                 splashTimer++;
                 if (splashTimer > 2000)
                 {
-                    atSplash = false;
-                    atMainMenu = true;
+                    currentLocation++;
                 edenEffect.Play();
                 }
                 if (directionSilver > 0)
@@ -167,11 +178,10 @@ namespace iDOLLUSION_alpha_v1
                     spriteBatch.Draw(goldButtonR, goldButtonRect, Color.White);
                 }
             }
-            else if (atMainMenu)
+            else if (currentLocation == Location.MainMenu)
             {
                 MediaPlayer.Stop();
                 techworld.Dispose();
-                atSplash = false;
                     spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                     spriteBatch.Draw(button, buttonExitRect, Color.White);
                     spriteBatch.Draw(button, buttonStartRect, Color.White);
@@ -238,13 +248,12 @@ namespace iDOLLUSION_alpha_v1
                 }
                 if (buttonStartRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
-                    atMainMenu = false;
-                    atCharacterSelection = true;
+                    currentLocation++;
 
                 }
                 
             }
-            if (atCharacterSelection)
+            if (currentLocation == Location.CharacterSelection)
             {
               spriteBatch.Draw(characterSelection, backgroundRect, Color.White);
                 if (character1Rect.Contains(mousePosition))
@@ -266,12 +275,20 @@ namespace iDOLLUSION_alpha_v1
 
                 }
 
+                if (character2Rect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
+                {
+                    currentLocation++;
+                }
+                if (character1Rect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
+                {
+                    currentLocation++;
+                }
 
 
             }
-            else if (!atMainMenu && !atSplash && !atCharacterSelection) //past splash and mainmenu
+            else if (currentLocation == Location.MainMap) //past splash and mainmenu
                 {
-                nocturneEffect.Play();
+                    
                 //handle textbox
                 spriteBatch.Draw(background, backgroundRect, Color.White);
                 edenEffect.Dispose();
