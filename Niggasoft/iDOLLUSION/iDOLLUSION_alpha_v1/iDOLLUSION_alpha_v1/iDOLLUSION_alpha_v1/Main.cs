@@ -30,6 +30,7 @@ namespace iDOLLUSION_alpha_v1
         private const uint chinpo = 4278190335;
         private const uint grass = 4278190080;
         private const uint loli = 4294901760;
+        private const uint road = 4280744959;
 //public variables     
 
          int directionSilver = 1;
@@ -41,6 +42,10 @@ namespace iDOLLUSION_alpha_v1
         SoundEffect edenEffect;
          SoundEffect nocturneEffect;
         public double VERSION = .01;  //VERSION NUMBER GOES HERE
+
+    static     int producerX = 570;
+    static     int producerY = 660;
+        private Vector2 producerLocation =new Vector2(producerX, producerY);
         
          int splashTimer = 0;
         Random rnd = new Random();
@@ -87,7 +92,7 @@ namespace iDOLLUSION_alpha_v1
             buttonStartRect = new Rectangle(510, 360, 300, 100);
             character1Rect = new Rectangle(200, 300, 300, 200);
             character2Rect = new Rectangle(800, 300, 300, 200);
-            producerRect = new Rectangle(570, 660, 50, 50);
+            producerRect = new Rectangle(producerX, producerY, 50, 50);
 
             base.Initialize();
         }
@@ -129,17 +134,65 @@ namespace iDOLLUSION_alpha_v1
 //GAME UPDATE LOOP HERE
         protected override void Update(GameTime gameTime)
         {
+            KeyboardState ks = Keyboard.GetState();
             MouseState ms = Mouse.GetState();
+/*
+
             string sColorval = "";
             uint[] myUint = new uint[1];
-if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.Height)
+if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.Height)  // DISPLAYS color value of collision map
             {
                 collisionMap.GetData(0, new Rectangle(ms.X, ms.Y, 1, 1), myUint, 0, 1);
                 sColorval = myUint[0].ToString();
             }
             Window.Title = ms.X.ToString() + "," + ms.Y.ToString() + " - " + sColorval;
+*/
+            if (currentLocation == Location.MainMap)
+            {
+                //movement controls for main map go here
+                if (ks != null)
+                {
+                    if(ks.IsKeyDown(Keys.W))
+                    {
+                        producerY-=2;
+                    }
+                    if(ks.IsKeyDown(Keys.S))
+                    {
+                        producerY+=2;
+                    }
+                    if(ks.IsKeyDown(Keys.A))
+                    {
+                        producerX-=2;
+                    }
+                    if(ks.IsKeyDown(Keys.D))
+                    {
+                        producerX+=2;
+                    }
+                }
+// collision handling           
+                uint currentArea = road;
+uint[] myUint = new uint[1];
+            if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.Height)
+            {
+                collisionMap.GetData(0, new Rectangle(ms.X, ms.Y, 1, 1), myUint, 0, 1);
+                currentArea = myUint[0];
+            }
+            switch (currentArea)
+                {
+                case chinpo:
+                    {
+                        Exit();
+                        break;
+                    }
+default:
+                        break;
+                }
 
- 
+
+
+
+
+            }
 
             
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
@@ -316,7 +369,7 @@ if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.H
                 //draw main navigational map and invisible collision map
                 spriteBatch.Draw(collisionMap, new Rectangle(0,0,screenWidth,screenHeight), Color.White);
                 spriteBatch.Draw(mainMap, backgroundRect, Color.White);
-                spriteBatch.Draw(producer, producerRect, Color.White);
+                spriteBatch.Draw(producer,  new Rectangle(producerX, producerY , 40, 40), Color.White);
 
                 edenEffect.Dispose();
                 }
