@@ -36,6 +36,8 @@ namespace iDOLLUSION_alpha_v1
 
         private static Day today = Day.Monday;
         private static Day dayLimit = Day.DayLimit;
+        private static int daysElapsed = 0;
+        private static int weeksElapsed = 0;
 
 
 
@@ -43,12 +45,18 @@ namespace iDOLLUSION_alpha_v1
         {
            if (currentTime == timeLimit) //go from night to morning
            {
+               daysElapsed++;
                currentTime = Time.Morning;
                today++;
            }
            if (today == dayLimit)  //go from sunday to monday
            {
                today = Day.Monday;
+           }
+           if (daysElapsed == 7)
+           {
+               weeksElapsed++;
+               daysElapsed = 0;
            }
            return;
 
@@ -79,8 +87,7 @@ namespace iDOLLUSION_alpha_v1
 
         public static void spendDay()
         {
-            currentTime = Time.Morning;
-            today++;
+            currentTime = Time.TimeLimit;
             upDate();
         }
 

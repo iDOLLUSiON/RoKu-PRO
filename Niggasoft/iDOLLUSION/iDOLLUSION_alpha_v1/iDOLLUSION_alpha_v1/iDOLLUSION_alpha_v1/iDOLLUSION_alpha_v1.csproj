@@ -110,6 +110,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="money\Cash.cs" />
+    <Compile Include="money\Funds.cs" />
     <Compile Include="events\event1.cs" />
     <Compile Include="phaseClock.cs" />
     <Compile Include="Draw.cs" />
