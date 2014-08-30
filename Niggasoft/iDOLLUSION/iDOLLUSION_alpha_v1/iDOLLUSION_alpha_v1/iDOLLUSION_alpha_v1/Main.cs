@@ -42,9 +42,8 @@ namespace iDOLLUSION_alpha_v1
         SoundEffect edenEffect;
          SoundEffect nocturneEffect;
         public double VERSION = .01;  //VERSION NUMBER GOES HERE
-
-    static     int producerX = 570;
-    static     int producerY = 660;
+    static  int producerX = 570;
+    static  int producerY = 660;
         private Vector2 producerLocation =new Vector2(producerX, producerY);
         
          int splashTimer = 0;
@@ -161,21 +160,22 @@ if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.H
                 //movement controls for main map go here
                 if (ks != null)
                 {
+                    int movementSpeed = 5;
                     if(ks.IsKeyDown(Keys.W))
                     {
-                        producerY-=2;
+                        producerY-=movementSpeed;
                     }
                     if(ks.IsKeyDown(Keys.S))
                     {
-                        producerY+=2;
+                        producerY+=movementSpeed;
                     }
                     if(ks.IsKeyDown(Keys.A))
                     {
-                        producerX-=2;
+                        producerX-=movementSpeed;
                     }
                     if(ks.IsKeyDown(Keys.D))
                     {
-                        producerX+=2;
+                        producerX+=movementSpeed;
                     }
                 }
 // collision handling           
