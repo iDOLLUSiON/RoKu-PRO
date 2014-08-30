@@ -160,7 +160,7 @@ if (ms.X >= 0 && ms.X < collisionMap.Width && ms.Y >= 0 && ms.Y < collisionMap.H
                 //movement controls for main map go here
                 if (ks != null)
                 {
-                    int movementSpeed = 5;
+                    int movementSpeed = 7;
                     if(ks.IsKeyDown(Keys.W))
                     {
                         producerY-=movementSpeed;
