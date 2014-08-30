@@ -17,7 +17,7 @@ using Microsoft.Xna.Framework.Media;
 using Color = Microsoft.Xna.Framework.Color;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
-
+/*
 
 namespace iDOLLUSION_alpha_v1
     {
@@ -77,3 +77,4 @@ GraphicsDeviceManager graphics;
         }
         }
     }
+*/
