@@ -17,3 +17,5 @@ Content\sounds\nocturne.xnb
 Content\sprites\characterSelected.xnb
 Content\images\characterSelection.xnb
 Content\sprites\characterUnselected.xnb
+Content\images\mainMap\collisionMap.xnb
+Content\images\mainMap\mainMap.xnb
