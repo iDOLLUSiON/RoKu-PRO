@@ -10,13 +10,15 @@ namespace iDOLLUSION_alpha_v1
     internal static class phaseClock
     {
 //this clock decides when events are possible, what time of day it is, etc.
-        public enum Time
+//NEVER PROCEED FROM EVENING -> MORNING OR SUNDAY -> MONDAY.  ALWAYS USE DAYLIMIT AND TIMELIMIT AND CALL upDate(); !!!!
+
+        public enum Time //Split the day into 4 timezones, TimeLimit is used only to proceed back to Morning
         {
             Morning = 1,
             Noon,
             Afternoon,
             Evening,
-            TimeLimit
+            TimeLimit //automatically rolls over to morning
         };
         
         private static Time currentTime = Time.Morning;
@@ -31,7 +33,7 @@ namespace iDOLLUSION_alpha_v1
             Friday,
             Saturday,
             Sunday,
-            DayLimit
+            DayLimit //automatically rolls over to Monday
         };
 
         private static Day today = Day.Monday;
@@ -43,20 +45,20 @@ namespace iDOLLUSION_alpha_v1
 
        private static void upDate() //call after any time change
         {
-           if (currentTime == timeLimit) //go from night to morning
+           if (currentTime == timeLimit) //Go from night to morning and mark day as elapsed
            {
                daysElapsed++;
                currentTime = Time.Morning;
                today++;
            }
-           if (today == dayLimit)  //go from sunday to monday
+           if (today == dayLimit)  //Go from sunday to monday
            {
                today = Day.Monday;
            }
-           if (daysElapsed == 7)
+           if (daysElapsed > 6)  //Convert days to weeks
            {
                weeksElapsed++;
-               daysElapsed = 0;
+               daysElapsed -=7 ;
            }
            return;
 
@@ -73,19 +75,19 @@ namespace iDOLLUSION_alpha_v1
             return !isWeekend();
         }
 
-        public static void spendTime()
+        public static void spendTime() //automatically passes 1 phase of the day
         {
             currentTime++;
             upDate();
         }
 
-        public static void spendTime(int timeSpent)
+        public static void spendTime(int timeSpent)  //use to pass multiple phases of the day, be sure to check for exceptions
         {
             currentTime +=  timeSpent;
             upDate();
         }
 
-        public static void spendDay()
+        public static void spendDay()  //progresses to the next morning regardless of day phase
         {
             currentTime = Time.TimeLimit;
             upDate();

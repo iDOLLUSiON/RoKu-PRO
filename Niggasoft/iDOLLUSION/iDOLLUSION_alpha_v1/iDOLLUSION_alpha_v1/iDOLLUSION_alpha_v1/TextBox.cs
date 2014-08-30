@@ -11,8 +11,8 @@ namespace iDOLLUSION_alpha_v1
     class TextBox
         {
 //fields
-         string speakerName;
-         string message;
+         string speakerName; //Name of the character talking
+         string message; //Message contained in text box
          Vector2 position = new Vector2(640, 600);
          Vector2 size = new Vector2(800, 300);
         public Boolean textBoxIsVisible = false;

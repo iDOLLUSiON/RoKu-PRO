@@ -8,9 +8,10 @@ using System.Xml;
 
 public class XMLReader
 {
-    static string path = (Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\test.xml");
-        static XmlDocument dialogue = new XmlDocument();
-    public static void readText()
+    static string path = (Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\test.xml");  //The file to be read from
+        static XmlDocument dialogue = new XmlDocument(); //name of the file from here on out
+
+    public static void readText() //This is not useful except for testing and will always return the same result  
     {
         dialogue.Load(path);
         XmlNodeList nodelist = dialogue.SelectNodes("/Greeting"); 
@@ -31,7 +32,9 @@ public class XMLReader
         }
 
     }
-    public static void readText(string message)
+
+
+    public static void readText(string message)   //This will return the text contained within the node indicated by message.  message must be a valid node name or an exception occurs
     {
         dialogue.Load(path);
         XmlNodeList nodelist = dialogue.SelectNodes("/Greeting"); 
@@ -47,7 +50,7 @@ public class XMLReader
 
 
             }
-            catch (Exception e)
+            catch (Exception e)  //catch exception when message is not a valid node
             {
                 
             }
@@ -56,7 +59,7 @@ public class XMLReader
 
     }
 
-    public static string retrieveMessage(string message)
+    public static string retrieveMessage(string message) //I think this is just an improved version of readText.  readText(message) may be redundant, check in future
     {
         dialogue.Load(path);
         XmlNodeList nodelist = dialogue.SelectNodes("/Greeting");

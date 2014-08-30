@@ -18,7 +18,8 @@ namespace iDOLLUSION_alpha_v1
        public int sparkleState = 1;
        protected int sparkleTimer = 0;
        protected int sparkleLimit = 700;
-      public static Sparkle[] sparkles = new Sparkle[20];
+   
+   public static Sparkle[] sparkles = new Sparkle[20]; //array containing all isntances of sparkle
          int i = 0;
 
         
@@ -28,15 +29,14 @@ namespace iDOLLUSION_alpha_v1
            {
                return;
            }
-           sparkleTimer++;
-
-if (sparkleTimer > sparkleLimit)
+ sparkleTimer++;
+if (sparkleTimer > sparkleLimit) //this will be used to swap colors periodically
 {
     sparkleTimer = 0;
     sparkleState *= -1;
     sparkleLimit -= 5;
 }  
-          lifespanTimer++;
+          lifespanTimer++; //when lifespan is met, declare sparkle dead and replace it with one in a different, random location
           if (lifespanTimer > lifespan)
            {
                dead = true;
@@ -49,7 +49,7 @@ if (sparkleTimer > sparkleLimit)
        {
            int x = 0;
             Random rnd = new Random();
-           if (rnd.Next(0,2) == 0)  //lower bound is inclusive, upper is exclusive
+           if (rnd.Next(0,2) == 0)  //lower bound is inclusive, upper is exclusive.  Determines a random position above hte horizon and to the sides of hte sun for a new sparkle
            {
                            x = rnd.Next(25, 380);
            }

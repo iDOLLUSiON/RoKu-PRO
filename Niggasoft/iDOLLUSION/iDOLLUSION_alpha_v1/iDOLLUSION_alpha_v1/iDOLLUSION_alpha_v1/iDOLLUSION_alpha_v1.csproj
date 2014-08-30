@@ -115,7 +115,6 @@
     <Compile Include="money\Funds.cs" />
     <Compile Include="events\event1.cs" />
     <Compile Include="phaseClock.cs" />
-    <Compile Include="Draw.cs" />
     <Compile Include="TextBox.cs" />
     <Compile Include="XMLReader.cs" />
     <Compile Include="Sparkle.cs" />
