@@ -110,6 +110,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="junkCode.cs" />
     <Compile Include="money\Funds.cs" />
     <Compile Include="events\event1.cs" />
     <Compile Include="phaseClock.cs" />
