@@ -36,13 +36,12 @@ namespace iDOLLUSION_alpha_v1
 
 
 //Sound Effects and Songs are declared here
-         SoundEffect edenEffect, nocturneEffect;
+        private SoundEffect edenEffect;
          Song techworld;
 
 //default producer location. Theres a better way to do this
     static  int producerX = 570;
     static  int producerY = 660;
-   // private Vector2 producerLocation =new Vector2(producerX, producerY);
 
 
 //Main Menu button location stuff
@@ -61,7 +60,7 @@ int splashTimer = 0;
 //ENUMS GO HERE
         public  enum Scene  //Which screen to display.  Every additional location needs an entry
         {
-            Splash, //Progression through menu screens is handled via currentLocation++;
+            Splash, //Progression through menu screens is handled via currentScene++;
             MainMenu,
             CharacterSelection, //This shouldnt be accessible except when chosenIdol = Idols.None
             MainMap,
@@ -178,6 +177,7 @@ default:
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+//Textures
             silverButton = Content.Load <Texture2D> ("sprites/silverArrow");
             button = Content.Load<Texture2D>("sprites/button");
             goldButton = Content.Load<Texture2D>("sprites/goldenArrow");
@@ -192,13 +192,12 @@ default:
             splash = Content.Load<Texture2D>("images/splash");
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
             mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
-            edenEffect = Content.Load<SoundEffect>("sounds/eden");
-            techworld = Content.Load<Song>("sounds/techworld");
-            nocturneEffect = Content.Load<SoundEffect>("sounds/nocturne");
             collisionMap = Content.Load<Texture2D>("images/mainMap/collisionMap");
             mainMap = Content.Load<Texture2D>("images/mainMap/mainMap");
             producer = Content.Load<Texture2D>("images/characters/producer");
-
+//Sounds
+            edenEffect = Content.Load<SoundEffect>("sounds/eden");
+            techworld = Content.Load<Song>("sounds/techworld");
 
             MediaPlayer.Play(techworld);
             MediaPlayer.IsRepeating = true;
@@ -244,10 +243,9 @@ default:
                     Collision.processMovement(producerShift);
                 }
             }
-
-            
             if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
-            if (currentScene == Scene.Splash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
+          
+  if (currentScene == Scene.Splash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
                 currentScene++;   //Clicking on teh splash proceeds tothe next screen
 

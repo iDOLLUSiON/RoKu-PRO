@@ -11,7 +11,8 @@ namespace iDOLLUSION_alpha_v1
     static class Collision
     {
 
-        private const uint passable = 4280744959,
+        private const uint
+             passable = 4280744959,
             impassable = 4278190080,
             building1 = 4294901760,
             building2 = 4278190335;
@@ -46,17 +47,16 @@ namespace iDOLLUSION_alpha_v1
                 {
                     return;
                 }
-
+//movement won't cause exception
                 futureX = (int) futureFloatX;
                 futureY = (int) futureFloatY;
-                if (checkCollision(futureX, futureY))
+                if (checkCollision(futureX, futureY))  //check if coords are passable or not
                 {
                     Main.setProducerLocation(futureX, futureY);
+                    futureFloatX = 0;
+                    futureFloatY = 0;
                 }
-                else
-                {
-                    return;  //This entire else statement is uneccessary, but makes it easier to follow.  All variables are self-resetting.
-                }
+
             }
         }
 
@@ -107,21 +107,24 @@ uint[] myUint = new uint[1];
        }
 
 
-      private static void  processCollision() //This doesn't need to be a seperate method, but I think it's neater, and performance is negligible since its in one class
-      {
-      switch (currentCollision)
-          {
-          case CollisionTypes.Building1:
-              {
-                  break;
-              }
-          default:
-                  {
-                  return;
-                  }
-          }
-          return;
-      }
+        private static void processCollision()
+            //This doesn't need to be a seperate method, but I think it's neater, and performance is negligible since its in one class
+        {
+            switch (currentCollision)
+            {
+                case CollisionTypes.Building1:
+                {
+                    setScene(Main.Scene.Splash);
+                    break;
+                }
+                default:
+                {
+                    return;
+                }
+            }
+            return;
+        }
+
 
         public static void resetProducerLocation()
         {
@@ -129,38 +132,13 @@ uint[] myUint = new uint[1];
             return;
         }
 
-
-
-    }
-/*
-        static class CollisionHandling
+        public static void setScene(Main.Scene scene)
         {
+            resetProducerLocation();
+            Main.currentScene = scene;
+        }
 
 
+}
 
-
-
-
-
-
-            switch (currentArea)  //Switch block for checking collisions
-                {
-                case chinpo: // If in contact with chinpo building
-                    {
-                        currentLocation = Location.Splash;  //returns the player to splash screen and resets position.  Used for testing, will be removed later
-          producerX = 570;
-          producerY = 660;
-                        break;
-                    }
-                case grass:    //Player should not be able to enter grass
-                        // add rebound code
-                        break;
-                case loli:
-                        break;
-
-            default:
-                        break;
-                }
-            
-        }*/
  }
