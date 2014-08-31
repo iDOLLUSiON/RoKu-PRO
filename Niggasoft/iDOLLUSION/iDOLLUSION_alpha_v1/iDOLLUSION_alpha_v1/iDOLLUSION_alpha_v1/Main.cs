@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Mime;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
+using iDOLLUSION_alpha_v1.scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -36,8 +37,8 @@ namespace iDOLLUSION_alpha_v1
 
 
 //Sound Effects and Songs are declared here
-        private SoundEffect edenEffect;
-         Song techworld;
+        public SoundEffect edenEffect;
+  public       Song techworld;
 
 //default producer location. Theres a better way to do this
     static  int producerX = 570;
@@ -135,45 +136,6 @@ default:
         public  Scene getCurrentScreen()
         {
             return (currentScene);
-        }
-
-      public  bool clicked()
-      {
-          checkClick();
-          if ((Mouse.GetState().LeftButton == ButtonState.Released) && click == 1)
-          {
-              click = 0;
-              isTimeOut = false;
-              timeOutTimer = 0;
-              return true;
-          }
-                    return false;
-            }
-
-        public int checkClick()
-        {
-            
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                click = 1;
-                isTimeOut = true;
-            }
-            return click;
-        }
-
-        public void checkTimeout()
-        {
-            if (isTimeOut && click > 0)
-            {
-                timeOutTimer++;
-                if (timeOutTimer > timeOutLimit)
-                {
-                    click = 0;
-                    isTimeOut = false;
-                    timeOutTimer = 0;
-                }
-            }
-            return;
         }
 
 
@@ -302,21 +264,13 @@ default:
 
  if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
           
-  if (currentScene == Scene.Splash && (clicked()))
-            {
-                currentScene++;   //Clicking on teh splash proceeds tothe next screen
+  if (currentScene == Scene.Splash)
+  {
+      Splash.upDate();
 
-if (!edenEffect.IsDisposed) //check if already unloaded, if not play, otherwise, reload
-                {
-                                    edenEffect.Play();
-                }
-else
-{
-    //add code that reloads edenEffect
-}
-            }
+  }
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height); //Mouse icon
-            checkTimeout();
+           MouseDetection. checkTimeout();
             base.Update(gameTime);
         }
 
@@ -423,12 +377,12 @@ else
                 } // End of button resizing
 
 
-                if (buttonExitRect.Contains(mousePosition) && clicked())
+                if (buttonExitRect.Contains(mousePosition) && MouseDetection.clicked())
                     //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     Exit();
                 }
-                if (buttonStartRect.Contains(mousePosition) && clicked())
+                if (buttonStartRect.Contains(mousePosition) && MouseDetection.clicked())
                     //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     if (chosenIdol == Idols.None)
@@ -470,12 +424,12 @@ else
                 }
 
 //Determine which button has been selected
-                if (character2Rect.Contains(mousePosition) && clicked())  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
+                if (character2Rect.Contains(mousePosition) && MouseDetection.clicked())  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     chosenIdol = Idols.Haruhi;
                     currentScene++;
                 }
-                if (character1Rect.Contains(mousePosition) && clicked())  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
+                if (character1Rect.Contains(mousePosition) && MouseDetection.clicked())  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     chosenIdol = Idols.Sayaka;
                     currentScene++;

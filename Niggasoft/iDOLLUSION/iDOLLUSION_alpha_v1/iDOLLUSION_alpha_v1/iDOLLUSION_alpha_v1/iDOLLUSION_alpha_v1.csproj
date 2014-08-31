@@ -113,6 +113,8 @@
     <Compile Include="characters\Producer.cs" />
     <Compile Include="characters\Idol.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Utility\MouseDetection.cs" />
+    <Compile Include="Music.cs" />
     <Compile Include="Collision.cs" />
     <Compile Include="Hotkeys.cs" />
     <Compile Include="junkCode.cs" />
@@ -125,6 +127,8 @@
     <Compile Include="money\Funds.cs" />
     <Compile Include="events\event1.cs" />
     <Compile Include="phaseClock.cs" />
+    <Compile Include="scenes\Splash.cs" />
+    <Compile Include="scenes\Class2.cs" />
     <Compile Include="TextBox.cs" />
     <Compile Include="XMLReader.cs" />
     <Compile Include="Sparkle.cs" />
@@ -143,12 +147,6 @@
   <ItemGroup>
     <Content Include="gameIcon.ico" />
     <Content Include="GameThumbnail.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\iDOLLUSION_alpha_v1Content\iDOLLUSION_alpha_v1Content.contentproj">
-      <Name>iDOLLUSION_alpha_v1Content</Name>
-      <XnaReferenceType>Content</XnaReferenceType>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

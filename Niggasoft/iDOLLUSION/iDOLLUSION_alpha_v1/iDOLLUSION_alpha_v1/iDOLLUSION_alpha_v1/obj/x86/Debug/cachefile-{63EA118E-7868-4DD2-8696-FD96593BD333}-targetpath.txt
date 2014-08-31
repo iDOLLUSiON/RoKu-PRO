@@ -8,12 +8,7 @@ Content\sprites\goldenArrowReversed.xnb
 Content\sprites\silverArrowReversed.xnb
 Content\sprites\mouseIcon.xnb
 Content\images\mainmenu.xnb
-Content\fonts\gameFont.xnb
 Content\sprites\button.xnb
-Content\sounds\techworld.xnb
-Content\sounds\techworld.wma
-Content\sounds\eden.xnb
-Content\sounds\nocturne.xnb
 Content\sprites\characterSelected.xnb
 Content\images\characterSelection.xnb
 Content\sprites\characterUnselected.xnb
@@ -21,3 +16,8 @@ Content\images\mainMap\collisionMap.xnb
 Content\images\mainMap\mainMap.xnb
 Content\images\characters\producer.xnb
 Content\images\schedule\schedule.xnb
+Content\fonts\gameFont.xnb
+Content\sounds\techworld.xnb
+Content\sounds\techworld.wma
+Content\sounds\eden.xnb
+Content\sounds\nocturne.xnb
