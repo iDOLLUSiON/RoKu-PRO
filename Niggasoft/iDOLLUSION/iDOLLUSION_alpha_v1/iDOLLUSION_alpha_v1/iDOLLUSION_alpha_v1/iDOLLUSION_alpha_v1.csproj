@@ -114,6 +114,7 @@
     <Compile Include="characters\Idol.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Collision.cs" />
+    <Compile Include="Hotkeys.cs" />
     <Compile Include="junkCode.cs" />
     <Compile Include="menus\Form1.cs">
       <SubType>Form</SubType>
