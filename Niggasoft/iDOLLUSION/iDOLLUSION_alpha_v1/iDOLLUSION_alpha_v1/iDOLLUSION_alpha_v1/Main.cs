@@ -55,6 +55,10 @@ public double VERSION = .01;
          
 int splashTimer = 0;
  Random rnd = new Random();
+public int click = 0;
+int timeOutTimer = 0;
+int timeOutLimit = 20;
+ bool isTimeOut = false;
 
 
 //ENUMS GO HERE
@@ -134,15 +138,43 @@ default:
         }
 
       public  bool clicked()
-            {
-          if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+      {
+          checkClick();
+          if ((Mouse.GetState().LeftButton == ButtonState.Released) && click == 1)
           {
+              click = 0;
+              isTimeOut = false;
+              timeOutTimer = 0;
               return true;
           }
                     return false;
             }
 
+        public int checkClick()
+        {
+            
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                click = 1;
+                isTimeOut = true;
+            }
+            return click;
+        }
 
+        public void checkTimeout()
+        {
+            if (isTimeOut && click > 0)
+            {
+                timeOutTimer++;
+                if (timeOutTimer > timeOutLimit)
+                {
+                    click = 0;
+                    isTimeOut = false;
+                    timeOutTimer = 0;
+                }
+            }
+            return;
+        }
 
 
 
@@ -270,7 +302,7 @@ default:
 
  if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
           
-  if (currentScene == Scene.Splash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
+  if (currentScene == Scene.Splash && (clicked()))
             {
                 currentScene++;   //Clicking on teh splash proceeds tothe next screen
 
@@ -284,13 +316,9 @@ else
 }
             }
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height); //Mouse icon
+            checkTimeout();
             base.Update(gameTime);
         }
-
-
-
-
-
 
 
 
@@ -395,12 +423,12 @@ else
                 } // End of button resizing
 
 
-                if (buttonExitRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (buttonExitRect.Contains(mousePosition) && clicked())
                     //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     Exit();
                 }
-                if (buttonStartRect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+                if (buttonStartRect.Contains(mousePosition) && clicked())
                     //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     if (chosenIdol == Idols.None)
@@ -442,12 +470,12 @@ else
                 }
 
 //Determine which button has been selected
-                if (character2Rect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
+                if (character2Rect.Contains(mousePosition) && clicked())  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     chosenIdol = Idols.Haruhi;
                     currentScene++;
                 }
-                if (character1Rect.Contains(mousePosition) && Mouse.GetState().LeftButton == ButtonState.Pressed)  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
+                if (character1Rect.Contains(mousePosition) && clicked())  //add buffer for previous clicks so that a single click doesnt trigger this from the previous screen
                 {
                     chosenIdol = Idols.Sayaka;
                     currentScene++;
