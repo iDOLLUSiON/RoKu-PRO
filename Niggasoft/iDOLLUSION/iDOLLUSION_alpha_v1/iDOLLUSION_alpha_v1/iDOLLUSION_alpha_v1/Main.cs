@@ -26,8 +26,13 @@ namespace iDOLLUSION_alpha_v1
         SpriteBatch spriteBatch;
       public static  Texture2D background, splash, schedule, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
       public    SpriteFont gameFont;
-      public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
+      public    Rectangle backgroundRect,  mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
         private int screenWidth, screenHeight;
+
+
+
+
+
 
 
 
@@ -37,8 +42,8 @@ namespace iDOLLUSION_alpha_v1
 
 
 //Sound Effects and Songs are declared here
-        public SoundEffect edenEffect;
-  public       Song techworld;
+        public static SoundEffect edenEffect;
+  public  static     Song techworld;
 
 //default producer location. Theres a better way to do this
     static  int producerX = 570;
@@ -53,14 +58,14 @@ int buttonSizeDir = 1;
 //Project versino number, for version control. Just forget about it for now
 public double VERSION = .01;  
 
-         
+         /*
 int splashTimer = 0;
  Random rnd = new Random();
 public int click = 0;
 int timeOutTimer = 0;
 int timeOutLimit = 20;
  bool isTimeOut = false;
-
+*/
 
 //ENUMS GO HERE
         public  enum Scene  //Which screen to display.  Every additional location needs an entry
@@ -138,6 +143,19 @@ default:
             return (currentScene);
         }
 
+        public void setRectX(Rectangle rect, int x)
+        {
+            rect.X = x;
+            return;
+        }
+
+        public void setRectX(Rectangle rect, int x, int y)
+        {
+            rect.X = x;
+            rect.Y = y;
+            return;
+        }
+
 
 
 /////////////////////////////////////////////
@@ -167,8 +185,8 @@ default:
             screenHeight = GraphicsDevice.Viewport.Height;
             backgroundRect = new Rectangle(0,0,screenWidth,screenHeight);
             mainmenuRect = new Rectangle(0,0,screenWidth,screenHeight);
-            silverButtonRect = new Rectangle(230,410,90,49);
-            goldButtonRect = new Rectangle(60,0,60,29);
+         /*   silverButtonRect = new Rectangle(230,410,90,49);
+            goldButtonRect = new Rectangle(60,0,60,29);*/
             buttonExitRect = new Rectangle(510, 500, 300, 100);
             buttonStartRect = new Rectangle(510, 360, 300, 100);
             character1Rect = new Rectangle(200, 300, 300, 200);
@@ -179,6 +197,8 @@ default:
         }
         protected override void LoadContent()
         {
+
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
 //Textures
             silverButton = Content.Load <Texture2D> ("sprites/silverArrow");
@@ -203,8 +223,7 @@ default:
             edenEffect = Content.Load<SoundEffect>("sounds/eden");
             techworld = Content.Load<Song>("sounds/techworld");
 
-            MediaPlayer.Play(techworld);
-            MediaPlayer.IsRepeating = true;
+
 
 
 
@@ -218,9 +237,8 @@ default:
         {
             KeyboardState ks = Keyboard.GetState();
             MouseState ms = Mouse.GetState();
-
- 
-
+       var mouseState = Mouse.GetState();              // use mouseState instead of Mouse.GetState() from here on out
+        Point mousePosition = new Point(mouseState.X, mouseState.Y);
 
 
             if (currentScene == Scene.MainMap)
@@ -255,7 +273,7 @@ default:
             }
             if (currentScene == Scene.Schedule)
             {
-                if (ks.IsKeyDown(Keys.W))
+                if (MouseDetection.clicked())
                 {
                    setGameScreen(Scene.MainMap);
                 }
@@ -283,54 +301,14 @@ default:
 //DRAW LOOP HERE
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+       GraphicsDevice.Clear(Color.CornflowerBlue);
        var mouseState = Mouse.GetState();              // use mouseState instead of Mouse.GetState() from here on out
-
-
         Point mousePosition = new Point(mouseState.X, mouseState.Y);
             spriteBatch.Begin();
             if (currentScene == Scene.Splash) //SPLASH DRAW LOOP
             {
                 spriteBatch.Draw(splash, backgroundRect, Color.White);
-                silverButtonRect.X += 5*directionSilver;
-                goldButtonRect.X += 6*directionGold;
-               
- //handle collisions between arrows and walls
-                if (silverButtonRect.X == 220 || silverButtonRect.X == 510)
-                {
-                    directionSilver *= -1;
-                }
-                if (goldButtonRect.X < 0 || goldButtonRect.X + goldButtonR.Width > 1280)
-                {
-                    directionGold *= -1;
-                }
-
                 spriteBatch.DrawString(gameFont, "Ver: " + VERSION, new Vector2(0, 690), Color.White);  //Draw game version number
-             
-   splashTimer++;     //Automatically proceed to main menu after a time
-                if (splashTimer > 2000)
-                {
-                    currentScene++;
-                    splashTimer = 0;
-                    edenEffect.Play();
-                }
-//Flip arrow sprite as neccessary
-                if (directionSilver > 0)
-                {
-                    spriteBatch.Draw(silverButton, silverButtonRect, Color.White);
-                }
-                else
-                {
-                    spriteBatch.Draw(silverButtonR, silverButtonRect, Color.White);
-                }
-                if (directionGold > 0)
-                {
-                    spriteBatch.Draw(goldButton, goldButtonRect, Color.White);
-                }
-                if (directionGold < 0)
-                {
-                    spriteBatch.Draw(goldButtonR, goldButtonRect, Color.White);
-                }
             }
 ////////////////////////////////////////////////////////////////////////////////////
 /// 

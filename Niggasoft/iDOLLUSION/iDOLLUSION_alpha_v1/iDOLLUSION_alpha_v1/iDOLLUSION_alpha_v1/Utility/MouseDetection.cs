@@ -15,13 +15,19 @@ static int timeOutTimer = 0;
 static int timeOutLimit = 20;
  static bool isTimeOut = false;
 
+/*
 
+       var mouseState = Mouse.GetState();              // use mouseState instead of Mouse.GetState() from here on out
+        Point mousePosition = new Point(mouseState.X, mouseState.Y);
+
+*/
+ 
 
 
       public static  bool clicked()
       {
           checkClick();
-          if ((Microsoft.Xna.Framework.Input.Mouse.GetState().LeftButton == ButtonState.Released) && click == 1)
+          if ((Microsoft.Xna.Framework.Input.Mouse.GetState().LeftButton == ButtonState.Pressed) && click == 1)
           {
               click = 0;
               isTimeOut = false;
@@ -31,7 +37,7 @@ static int timeOutLimit = 20;
                     return false;
             }
 
-        public static int checkClick()
+        private static int checkClick()
         {
             
             if (Microsoft.Xna.Framework.Input.Mouse.GetState().LeftButton == ButtonState.Released)

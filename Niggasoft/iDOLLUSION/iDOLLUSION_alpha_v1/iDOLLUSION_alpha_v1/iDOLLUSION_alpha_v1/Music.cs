@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace iDOLLUSION_alpha_v1
     {
-    class Music
+   static class Music
         {
 
 
-        public void play(SoundEffect soundEffect)
+        public static void play(SoundEffect soundEffect)
         {
             if (soundEffect.IsDisposed)
             {
@@ -25,7 +25,7 @@ namespace iDOLLUSION_alpha_v1
         }
 
 
-        public void play(Song song)
+        public static void play(Song song)
         {
             if (song.IsDisposed)
             {
@@ -36,7 +36,7 @@ namespace iDOLLUSION_alpha_v1
             return;
         }
 
-        public void stop(SoundEffect soundEffect)
+        public static void stop(SoundEffect soundEffect)
         {
             if (!soundEffect.IsDisposed)
             {
@@ -45,7 +45,7 @@ namespace iDOLLUSION_alpha_v1
             return;
         }
 
-        public void stop(Song song)
+        public static void stop(Song song)
         {
             if (!song.IsDisposed)
             {
