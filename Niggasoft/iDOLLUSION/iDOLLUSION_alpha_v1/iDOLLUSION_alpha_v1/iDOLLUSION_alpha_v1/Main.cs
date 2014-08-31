@@ -23,7 +23,7 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-      public static  Texture2D background, splash, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
+      public static  Texture2D background, splash, schedule, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
       public    SpriteFont gameFont;
       public    Rectangle backgroundRect, silverButtonRect, goldButtonRect, mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
         private int screenWidth, screenHeight;
@@ -66,7 +66,8 @@ int splashTimer = 0;
             MainMap,
             Home, //vvv are unimplemented thus far
             Office,
-            Studio
+            Studio,
+            Schedule
         };
 
     public static Scene currentScene = Scene.Splash; //This sets the first screen displayed as the Splash screen
@@ -121,7 +122,7 @@ default:
                 else
                 {
                     currentScene = scene;
-                    Collision.resetProducerLocation();
+                 //   Collision.resetProducerLocation();
                 }
             }
             return;
@@ -132,6 +133,14 @@ default:
             return (currentScene);
         }
 
+      public  bool clicked()
+            {
+          if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+          {
+              return true;
+          }
+                    return false;
+            }
 
 
 
@@ -195,6 +204,7 @@ default:
             collisionMap = Content.Load<Texture2D>("images/mainMap/collisionMap");
             mainMap = Content.Load<Texture2D>("images/mainMap/mainMap");
             producer = Content.Load<Texture2D>("images/characters/producer");
+            schedule = Content.Load<Texture2D>("images/schedule/schedule");
 //Sounds
             edenEffect = Content.Load<SoundEffect>("sounds/eden");
             techworld = Content.Load<Song>("sounds/techworld");
@@ -215,10 +225,16 @@ default:
             KeyboardState ks = Keyboard.GetState();
             MouseState ms = Mouse.GetState();
 
+ 
+
 
 
             if (currentScene == Scene.MainMap)
             {
+                if (ks.IsKeyDown(Keys.P))
+                {
+                   setGameScreen(Scene.Schedule);
+                }
                 //movement controls for main map go here
                 if (ks != null)
                 {
@@ -243,7 +259,16 @@ default:
                     Collision.processMovement(producerShift);
                 }
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
+            if (currentScene == Scene.Schedule)
+            {
+                if (ks.IsKeyDown(Keys.W))
+                {
+                   setGameScreen(Scene.MainMap);
+                }
+            }
+
+
+ if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
           
   if (currentScene == Scene.Splash && (Mouse.GetState().LeftButton == ButtonState.Pressed))
             {
@@ -261,6 +286,16 @@ else
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height); //Mouse icon
             base.Update(gameTime);
         }
+
+
+
+
+
+
+
+
+
+
 
 
 //DRAW LOOP HERE
@@ -431,6 +466,12 @@ else
                 spriteBatch.Draw(mainMap, backgroundRect, Color.White);
                 spriteBatch.Draw(producer,  new Rectangle(producerX, producerY , 40, 40), Color.White);
                 edenEffect.Dispose();
+                }
+
+            else if (currentScene == Scene.Schedule) //MAIN MAP DRAW LOOP
+                {
+                    
+                spriteBatch.Draw(schedule, backgroundRect, Color.White);
                 }
 ////////////////////////////////////////////////////////////////////////
  

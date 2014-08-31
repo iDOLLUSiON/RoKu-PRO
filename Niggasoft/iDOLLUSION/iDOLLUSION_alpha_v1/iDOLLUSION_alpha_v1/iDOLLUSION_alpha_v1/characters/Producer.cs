@@ -32,9 +32,19 @@ namespace iDOLLUSION_alpha_v1.characters
 
      public void upDateProducerLevel()
      {
+         producerPointsNeeded = 500*producerLevelInt;
+
+         if (producerPoints > producerPointsNeeded)
+         {
+             producerLevel++;
+             producerPoints -= producerPointsNeeded;
+              producerPointsNeeded = 500*producerLevelInt;
+
+         }
          //update Text
          switch (producerLevel)
          {
+
 case ProducerLevel.Novice:
                  producerLevelText = Novice;
                  break;
@@ -51,7 +61,7 @@ case ProducerLevel.Master:
                  producerLevelText = Master;
                  break;
          }
-         producerPointsNeeded = 500*producerLevelInt;
+
          return;
      }
 

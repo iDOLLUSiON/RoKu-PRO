@@ -40,6 +40,7 @@ namespace iDOLLUSION_alpha_v1
         private static Day dayLimit = Day.DayLimit;
         private static int daysElapsed = 0;
         private static int weeksElapsed = 0;
+        private static int currentWeek = 0;
 
 
 
@@ -60,6 +61,7 @@ namespace iDOLLUSION_alpha_v1
                weeksElapsed++;
                daysElapsed -=7 ;
            }
+           currentWeek = weeksElapsed + 1;
            return;
 
         }
