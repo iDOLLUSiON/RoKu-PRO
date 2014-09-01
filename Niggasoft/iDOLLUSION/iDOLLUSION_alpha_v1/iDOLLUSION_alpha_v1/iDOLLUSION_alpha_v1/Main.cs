@@ -25,38 +25,31 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-      public static  Texture2D background, splash, schedule, office, officeCollisionMap, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, selectionMarker, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
-      public    SpriteFont gameFont, gameFontLarge;
-      public    Rectangle backgroundRect,  mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
+        public SpriteFont gameFont, gameFontLarge;
+        public Rectangle backgroundRect,  mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
         private int screenWidth, screenHeight;
-
-
-
-
-
-
+        private ImageLoader imageLoader;
 
 //determines the direction of the arrows on splash screen. Needs cleaning. Move to seperate class?
          int directionSilver = 1;
          int directionGold = 1;
 
-
 //Sound Effects and Songs are declared here
         public static SoundEffect edenEffect;
-  public  static     Song techworld;
+        public  static Song techworld;
 
 //default producer location. Theres a better way to do this
-    static  int producerX = 570;
-    static  int producerY = 660;
+        static  int producerX = 570;
+        static  int producerY = 660;
 
 
 //Main Menu button location stuff
-int buttonSizeDir = 1;
- private Vector2 exitStringCoord = new Vector2(637, 520);
- private Vector2 startStringCoord = new Vector2(637, 380);
+        int buttonSizeDir = 1;
+        private Vector2 exitStringCoord = new Vector2(637, 520);
+        private Vector2 startStringCoord = new Vector2(637, 380);
 
 //Project versino number, for version control. Just forget about it for now
-public double VERSION = .01;  
+        public double VERSION = .01;  
 
 
 
@@ -177,13 +170,12 @@ default:
             screenHeight = GraphicsDevice.Viewport.Height;
             backgroundRect = new Rectangle(0,0,screenWidth,screenHeight);
             mainmenuRect = new Rectangle(0,0,screenWidth,screenHeight);
-         /*   silverButtonRect = new Rectangle(230,410,90,49);
-            goldButtonRect = new Rectangle(60,0,60,29);*/
             buttonExitRect = new Rectangle(510, 500, 300, 100);
             buttonStartRect = new Rectangle(510, 360, 300, 100);
             character1Rect = new Rectangle(200, 300, 300, 200);
             character2Rect = new Rectangle(800, 300, 300, 200);
             producerRect = new Rectangle(producerX, producerY, 50, 50);
+            imageLoader = new ImageLoader(Content);
 
             base.Initialize();
         }
@@ -193,28 +185,8 @@ default:
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 //Textures
-            silverButton = Content.Load <Texture2D> ("sprites/silverArrow");
-            button = Content.Load<Texture2D>("sprites/button");
-            goldButton = Content.Load<Texture2D>("sprites/goldenArrow");
-            silverButtonR = Content.Load <Texture2D> ("sprites/silverArrowReversed");
-            goldButtonR = Content.Load<Texture2D>("sprites/goldenArrowReversed");
-            sparkle = Content.Load<Texture2D>("sprites/goldButton");
-            characterSelection = Content.Load<Texture2D>("images/characterSelection");
-            characterSelected = Content.Load <Texture2D> ("sprites/characterSelected");
-            characterUnselected = Content.Load<Texture2D>("sprites/characterUnselected");
-            background = Content.Load<Texture2D>("images/background");
-            mainmenu = Content.Load<Texture2D>("images/mainmenu");
-            splash = Content.Load<Texture2D>("images/splash");
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
             gameFontLarge = Content.Load<SpriteFont>("fonts/gameFontLarge");
-            mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
-            collisionMap = Content.Load<Texture2D>("images/mainMap/collisionMap");
-            mainMap = Content.Load<Texture2D>("images/mainMap/mainMap");
-            officeCollisionMap = Content.Load<Texture2D>("images/office/officeCollisionMap");
-            office = Content.Load<Texture2D>("images/office/office");
-            producer = Content.Load<Texture2D>("images/characters/producer");
-            schedule = Content.Load<Texture2D>("images/schedule/schedule");
-            selectionMarker = Content.Load<Texture2D>("images/schedule/selectionMarker");
 //Sounds
             edenEffect = Content.Load<SoundEffect>("sounds/eden");
             techworld = Content.Load<Song>("sounds/techworld");
@@ -291,7 +263,7 @@ default:
       Splash.upDate();
 
   }
-            mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height); //Mouse icon
+  mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, ImageLoader.mouseIcon.Width, ImageLoader.mouseIcon.Height); //Mouse icon
            MouseDetection. checkTimeout();
             phaseClock.upDate();
             base.Update(gameTime);
@@ -312,7 +284,7 @@ default:
             spriteBatch.Begin();
             if (currentScene == Scene.Splash) //SPLASH DRAW LOOP
             {
-                spriteBatch.Draw(splash, backgroundRect, Color.White);
+                spriteBatch.Draw(ImageLoader.splash, backgroundRect, Color.White);
                 spriteBatch.DrawString(gameFont, "Ver: " + VERSION, new Vector2(0, 690), Color.White);  //Draw game version number
             }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -322,9 +294,9 @@ default:
             {
                 MediaPlayer.Stop();
                 techworld.Dispose();
-                spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
-                spriteBatch.Draw(button, buttonExitRect, Color.White);
-                spriteBatch.Draw(button, buttonStartRect, Color.White);
+                spriteBatch.Draw(ImageLoader.mainmenu, backgroundRect, Color.White);
+                spriteBatch.Draw(ImageLoader.button, buttonExitRect, Color.White);
+                spriteBatch.Draw(ImageLoader.button, buttonStartRect, Color.White);
                 spriteBatch.DrawString(gameFont, "Exit", exitStringCoord, Color.Brown);
                     //TODO change font size, move dynamically
                 spriteBatch.DrawString(gameFont, "Start", startStringCoord, Color.DarkGoldenrod);
@@ -383,25 +355,25 @@ default:
  
             if (currentScene == Scene.CharacterSelection)  //CHARACTER SELECTION DRAW LOOP
             {
-              spriteBatch.Draw(characterSelection, backgroundRect, Color.White);// Draw appropriate background
+                spriteBatch.Draw(ImageLoader.characterSelection, backgroundRect, Color.White);// Draw appropriate background
 
                            // This makes the portrait you hover over glow
                 if (character1Rect.Contains(mousePosition))      
                 {
-                    spriteBatch.Draw(characterSelected, character1Rect, Color.White);
+                    spriteBatch.Draw(ImageLoader.characterSelected, character1Rect, Color.White);
                 }
                 else
                 {
-                  spriteBatch.Draw(characterUnselected, character1Rect, Color.White);
+                    spriteBatch.Draw(ImageLoader.characterUnselected, character1Rect, Color.White);
 
                 }
                 if (character2Rect.Contains(mousePosition))
                 {
-                    spriteBatch.Draw(characterSelected, character2Rect, Color.White);
+                    spriteBatch.Draw(ImageLoader.characterSelected, character2Rect, Color.White);
                 }
                 else
                 {
-                  spriteBatch.Draw(characterUnselected, character2Rect, Color.White);
+                    spriteBatch.Draw(ImageLoader.characterUnselected, character2Rect, Color.White);
 
                 }
 
@@ -426,16 +398,16 @@ default:
                 {
                     
                 //draw main navigational map and invisible collision map.  Remember to go in order [back to front}
-                spriteBatch.Draw(collisionMap, new Rectangle(0,0,screenWidth,screenHeight), Color.White);
-                spriteBatch.Draw(mainMap, backgroundRect, Color.White);
-                spriteBatch.Draw(producer,  new Rectangle(producerX, producerY , 40, 40), Color.White);
+                    spriteBatch.Draw(ImageLoader.collisionMap, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    spriteBatch.Draw(ImageLoader.mainMap, backgroundRect, Color.White);
+                    spriteBatch.Draw(ImageLoader.producer, new Rectangle(producerX, producerY, 40, 40), Color.White);
                 edenEffect.Dispose();
                 }
 
             else if (currentScene == Scene.Schedule) //Schedule draw loop
                 {
-                spriteBatch.Draw(schedule, backgroundRect, Color.White);
-                spriteBatch.Draw(selectionMarker, new Rectangle(phaseClock.getSelectionCoord()-40, phaseClock.yCoord-50, 209, 170), Color.White);
+                    spriteBatch.Draw(ImageLoader.schedule, backgroundRect, Color.White);
+                    spriteBatch.Draw(ImageLoader.selectionMarker, new Rectangle(phaseClock.getSelectionCoord() - 40, phaseClock.yCoord - 50, 209, 170), Color.White);
 
                  foreach (Events events in Events.eventList)                 //Draw each event onto the schedule
                     {
@@ -449,9 +421,9 @@ default:
                 {
                     
                 //draw main navigational map and invisible collision map.  Remember to go in order [back to front}
-                spriteBatch.Draw(officeCollisionMap, new Rectangle(0,0,screenWidth,screenHeight), Color.White);
-                spriteBatch.Draw(office, backgroundRect, Color.White);
-                spriteBatch.Draw(producer,  new Rectangle(producerX, producerY , 40, 40), Color.White);
+                    spriteBatch.Draw(ImageLoader.officeCollisionMap, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    spriteBatch.Draw(ImageLoader.office, backgroundRect, Color.White);
+                    spriteBatch.Draw(ImageLoader.producer, new Rectangle(producerX, producerY, 40, 40), Color.White);
                 edenEffect.Dispose();
                 }
 
@@ -459,7 +431,7 @@ default:
 ////////////////////////////////////////////////////////////////////////
  
 //ALWAYS DRAW LOOP
-            spriteBatch.Draw(mouseIcon, mouseIconRect, Color.White);
+            spriteBatch.Draw(ImageLoader.mouseIcon, mouseIconRect, Color.White);
             spriteBatch.DrawString(gameFont, Mouse.GetState().X.ToString() + " " + Mouse.GetState().Y.ToString(), new Vector2(0, 100), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);

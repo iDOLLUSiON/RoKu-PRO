@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Xna.Framework;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace iDOLLUSION_alpha_v1
     {
@@ -68,17 +70,17 @@ uint currentArea = 0;
 uint[] myUint = new uint[1];
         if (Main.currentScene == Main.Scene.MainMap)
         {
-            if (x >= 0 && x < Main.collisionMap.Width && y >= 0 && y < Main.collisionMap.Height)
+            if (x >= 0 && x < ImageLoader.collisionMap.Width && y >= 0 && y < ImageLoader.collisionMap.Height)
             {
-                Main.collisionMap.GetData(0, new Rectangle(x + 25, y + 25, 1, 1), myUint, 0, 1);
+                ImageLoader.collisionMap.GetData(0, new Rectangle(x + 25, y + 25, 1, 1), myUint, 0, 1);
                 currentArea = myUint[0];
             }
         }
         else if (Main.currentScene == Main.Scene.Office)
         {
-          if (x >= 0 && x < Main.officeCollisionMap.Width && y >= 0 && y < Main.officeCollisionMap.Height)
+            if (x >= 0 && x < ImageLoader.officeCollisionMap.Width && y >= 0 && y < ImageLoader.officeCollisionMap.Height)
             {
-                Main.officeCollisionMap.GetData(0, new Rectangle(x + 25, y + 25, 1, 1), myUint, 0, 1);
+                ImageLoader.officeCollisionMap.GetData(0, new Rectangle(x + 25, y + 25, 1, 1), myUint, 0, 1);
                 currentArea = myUint[0];
             }
         }
