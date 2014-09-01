@@ -9,6 +9,7 @@ namespace iDOLLUSION_alpha_v1
 	{
 			private static int personalFunds = 0; //starting funds
 			private static int companyFunds = 0;
+	    private static int error = -1;
 			public static void setFunds(int val, string accType) 
 			{
 				switch (accType)
@@ -33,7 +34,7 @@ namespace iDOLLUSION_alpha_v1
 					case "company":
 						return companyFunds;
 				}
-				return 1000000000;
+				return error;
 			}
 
 			public static void addFunds(int val, string accType) 
@@ -49,6 +50,7 @@ namespace iDOLLUSION_alpha_v1
 						break;
 				}
 			}
+
 			public static string fundsToString(string accType)
 			{
 				string funds = null;

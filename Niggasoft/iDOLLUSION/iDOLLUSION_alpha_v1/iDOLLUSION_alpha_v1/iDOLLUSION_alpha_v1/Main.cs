@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Mime;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
+using iDOLLUSION_alpha_v1.characters;
 using iDOLLUSION_alpha_v1.scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
