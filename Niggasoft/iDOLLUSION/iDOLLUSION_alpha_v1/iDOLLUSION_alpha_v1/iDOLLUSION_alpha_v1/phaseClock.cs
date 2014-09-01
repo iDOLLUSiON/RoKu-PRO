@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace iDOLLUSION_alpha_v1
 {
@@ -20,20 +21,20 @@ namespace iDOLLUSION_alpha_v1
             Evening,
             TimeLimit //automatically rolls over to morning
         };
-        
+
         private static Time currentTime = Time.Morning;
         private static Time timeLimit = Time.TimeLimit;
 
         public enum Day
         {
             Monday = 1,
-            Tuesday,
-            Wednesday,
-            Thursday,
-            Friday,
-            Saturday,
-            Sunday,
-            DayLimit //automatically rolls over to Monday
+            Tuesday=2,
+            Wednesday=3,
+            Thursday=4,
+            Friday=5,
+            Saturday=6,
+            Sunday=7,
+            DayLimit=8 //automatically rolls over to Monday
         };
 
         private static Day today = Day.Monday;
@@ -41,28 +42,30 @@ namespace iDOLLUSION_alpha_v1
         private static int daysElapsed = 0;
         private static int weeksElapsed = 0;
         private static int currentWeek = 0;
+        private static int xCoord;
+        public static int yCoord = 45;
 
 
 
-       private static void upDate() //call after any time change
+        public static void upDate() //call after any time change
         {
-           if (currentTime == timeLimit) //Go from night to morning and mark day as elapsed
-           {
-               daysElapsed++;
-               currentTime = Time.Morning;
-               today++;
-           }
-           if (today == dayLimit)  //Go from sunday to monday
-           {
-               today = Day.Monday;
-           }
-           if (daysElapsed > 6)  //Convert days to weeks
-           {
-               weeksElapsed++;
-               daysElapsed -=7 ;
-           }
-           currentWeek = weeksElapsed + 1;
-           return;
+            if (currentTime == timeLimit) //Go from night to morning and mark day as elapsed
+            {
+                daysElapsed++;
+                currentTime = Time.Morning;
+                today++;
+            }
+            if (today == dayLimit) //Go from sunday to monday
+            {
+                today = Day.Monday;
+            }
+            if (daysElapsed > 6) //Convert days to weeks
+            {
+                weeksElapsed++;
+                daysElapsed -= 7;
+            }
+            currentWeek = weeksElapsed + 1;
+            return;
 
         }
 
@@ -83,13 +86,14 @@ namespace iDOLLUSION_alpha_v1
             upDate();
         }
 
-        public static void spendTime(int timeSpent)  //use to pass multiple phases of the day, be sure to check for exceptions
+        public static void spendTime(int timeSpent)
+            //use to pass multiple phases of the day, be sure to check for exceptions
         {
-            currentTime +=  timeSpent;
+            currentTime += timeSpent;
             upDate();
         }
 
-        public static void spendDay()  //progresses to the next morning regardless of day phase
+        public static void spendDay() //progresses to the next morning regardless of day phase
         {
             currentTime = Time.TimeLimit;
             upDate();
@@ -106,5 +110,48 @@ namespace iDOLLUSION_alpha_v1
         }
 
 
+        public static int getSelectionCoord()
+        {
+            switch (today) //X
+            {
+                case phaseClock.Day.Monday:
+                {
+                    xCoord = 110;
+                    break;
+                }
+                case phaseClock.Day.Tuesday:
+                {
+                    xCoord = 265;
+                    break;
+                }
+                case phaseClock.Day.Wednesday:
+                {
+                    xCoord = 415;
+                    break;
+                }
+                case phaseClock.Day.Thursday:
+                {
+                    xCoord = 562;
+                    break;
+                }
+                case phaseClock.Day.Friday:
+                {
+                    xCoord = 715;
+                    break;
+                }
+                case phaseClock.Day.Saturday:
+                {
+                    xCoord = 860;
+                    break;
+                }
+                case phaseClock.Day.Sunday:
+                {
+                    xCoord = 1012;
+                    break;
+                }
+            }
+            return xCoord;
+
+        }
     }
 }

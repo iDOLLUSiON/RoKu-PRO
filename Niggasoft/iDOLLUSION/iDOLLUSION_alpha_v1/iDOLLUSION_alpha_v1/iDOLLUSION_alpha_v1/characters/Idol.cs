@@ -34,9 +34,10 @@ namespace iDOLLUSION_alpha_v1.characters
 
             private  enum InjuryType
             {
-                vocalFatigue,
-                muscleFatigue,
-                sick,
+                VocalFatigue,
+                MuscleFatigue,
+                Sick,
+                Scanda,
                 NONE
             }
             private InjuryType injury = InjuryType.NONE;

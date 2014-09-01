@@ -165,3 +165,4 @@ C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\i
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sounds\nocturne.xnb
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\sounds\techworld.wma
 C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\obj\x86\Debug\iDOLLUSION_alpha_v1.Form1.resources
+C:\Users\CJ\Desktop\RoKu PRO\RoKu-PRO\Niggasoft\iDOLLUSION\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\iDOLLUSION_alpha_v1\bin\x86\Debug\Content\images\schedule\selectionMarker.xnb
