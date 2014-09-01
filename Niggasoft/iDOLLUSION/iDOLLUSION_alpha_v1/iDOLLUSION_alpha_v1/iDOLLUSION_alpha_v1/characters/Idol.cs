@@ -28,6 +28,7 @@ namespace iDOLLUSION_alpha_v1.characters
             private int tact;
             private int image;
             private int popularity;
+            private Companies company;
 
 //modifiers
             private bool isInjured = false;
@@ -37,7 +38,7 @@ namespace iDOLLUSION_alpha_v1.characters
                 VocalFatigue,
                 MuscleFatigue,
                 Sick,
-                Scanda,
+                Scandal,
                 NONE
             }
             private InjuryType injury = InjuryType.NONE;

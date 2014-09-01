@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Input;
 
 namespace iDOLLUSION_alpha_v1.characters
     {
     class Companies
     {
+        private KeyState oldKeyState = new KeyState();
+
+
+        
         private string companyName;
         Random rnd = new Random();
         private enum CompanySize
@@ -22,10 +27,9 @@ namespace iDOLLUSION_alpha_v1.characters
         {
             BADPRESS,
             GOODPRESS,
-            
-        }                                                                                                                   
+        }
 
-
+        private List<Idol> companyIdols = new List<Idol>();
 
         Companies()
         {

@@ -123,6 +123,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Regions.cs" />
+    <Compile Include="Utility\Contents.cs" />
     <Compile Include="Utility\MouseDetection.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Collision.cs" />

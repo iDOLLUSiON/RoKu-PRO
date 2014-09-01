@@ -25,7 +25,7 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-      public static  Texture2D background, splash, schedule, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, selectionMarker, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
+      public static  Texture2D background, splash, schedule, office, officeCollisionMap, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, selectionMarker, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
       public    SpriteFont gameFont, gameFontLarge;
       public    Rectangle backgroundRect,  mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
         private int screenWidth, screenHeight;
@@ -58,14 +58,7 @@ int buttonSizeDir = 1;
 //Project versino number, for version control. Just forget about it for now
 public double VERSION = .01;  
 
-         /*
-int splashTimer = 0;
- Random rnd = new Random();
-public int click = 0;
-int timeOutTimer = 0;
-int timeOutLimit = 20;
- bool isTimeOut = false;
-*/
+
 
 //ENUMS GO HERE
         public  enum Scene  //Which screen to display.  Every additional location needs an entry
@@ -121,12 +114,18 @@ default:
 
 
 
-        public  void setGameScreen(Scene scene)
-        {
+       public  void setGameScreen(Scene scene)
+       {
             if (currentScene != scene)
             {
                 if (scene == Scene.CharacterSelection && chosenIdol != Idols.None)
                 {
+                    return;
+                }
+                if (scene == Scene.Office )
+                {
+                    producerX = 860;
+                    producerY = 676;
                     return;
                 }
                 else
@@ -138,7 +137,7 @@ default:
             return;
         }
 
-        public  Scene getCurrentScreen()
+        public Scene getCurrentScreen()
         {
             return (currentScene);
         }
@@ -159,13 +158,6 @@ default:
 
 
 /////////////////////////////////////////////
-
-
-
-
-
-
-
         public Main()
         {
 
@@ -218,6 +210,8 @@ default:
             mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
             collisionMap = Content.Load<Texture2D>("images/mainMap/collisionMap");
             mainMap = Content.Load<Texture2D>("images/mainMap/mainMap");
+            officeCollisionMap = Content.Load<Texture2D>("images/office/officeCollisionMap");
+            office = Content.Load<Texture2D>("images/office/office");
             producer = Content.Load<Texture2D>("images/characters/producer");
             schedule = Content.Load<Texture2D>("images/schedule/schedule");
             selectionMarker = Content.Load<Texture2D>("images/schedule/selectionMarker");
@@ -243,7 +237,7 @@ default:
         Point mousePosition = new Point(mouseState.X, mouseState.Y);
 
 
-            if (currentScene == Scene.MainMap)
+            if (currentScene == Scene.MainMap || currentScene == Scene.Office)
             {
                 if (ks.IsKeyDown(Keys.P))
                 {
@@ -252,7 +246,6 @@ default:
                     new Events(phaseClock.Day.Tuesday, phaseClock.Time.Noon, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
                     new Events(phaseClock.Day.Wednesday, phaseClock.Time.Afternoon, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
                     new Events(phaseClock.Day.Thursday, phaseClock.Time.Evening, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
-
                 }
                 //movement controls for main map go here
                 if (ks != null)
@@ -452,6 +445,17 @@ default:
                 spriteBatch.DrawString(gameFontLarge, phaseClock.getWeek(), new Vector2(1220,179), Color.Black);
         
                 }
+            else if (currentScene == Scene.Office) //MAIN MAP DRAW LOOP
+                {
+                    
+                //draw main navigational map and invisible collision map.  Remember to go in order [back to front}
+                spriteBatch.Draw(officeCollisionMap, new Rectangle(0,0,screenWidth,screenHeight), Color.White);
+                spriteBatch.Draw(office, backgroundRect, Color.White);
+                spriteBatch.Draw(producer,  new Rectangle(producerX, producerY , 40, 40), Color.White);
+                edenEffect.Dispose();
+                }
+
+
 ////////////////////////////////////////////////////////////////////////
  
 //ALWAYS DRAW LOOP

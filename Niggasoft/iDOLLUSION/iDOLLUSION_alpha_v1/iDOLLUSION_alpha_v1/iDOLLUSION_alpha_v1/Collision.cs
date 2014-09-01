@@ -66,11 +66,22 @@ namespace iDOLLUSION_alpha_v1
        {
 uint currentArea = 0; 
 uint[] myUint = new uint[1];
+        if (Main.currentScene == Main.Scene.MainMap)
+        {
             if (x >= 0 && x < Main.collisionMap.Width && y >= 0 && y < Main.collisionMap.Height)
             {
-                Main.collisionMap.GetData(0, new Rectangle(x+25, y+25, 1, 1), myUint, 0, 1);
+                Main.collisionMap.GetData(0, new Rectangle(x + 25, y + 25, 1, 1), myUint, 0, 1);
                 currentArea = myUint[0];
             }
+        }
+        else if (Main.currentScene == Main.Scene.Office)
+        {
+          if (x >= 0 && x < Main.officeCollisionMap.Width && y >= 0 && y < Main.officeCollisionMap.Height)
+            {
+                Main.officeCollisionMap.GetData(0, new Rectangle(x + 25, y + 25, 1, 1), myUint, 0, 1);
+                currentArea = myUint[0];
+            }
+        }
         switch (currentArea)
         {
             case (passable):
@@ -114,7 +125,7 @@ uint[] myUint = new uint[1];
             {
                 case CollisionTypes.Building1:
                 {
-                    setScene(Main.Scene.Splash);
+                    setScene(Main.Scene.Office);
                     break;
                 }
                 default:
@@ -135,6 +146,10 @@ uint[] myUint = new uint[1];
         public static void setScene(Main.Scene scene)
         {
             resetProducerLocation();
+            if (scene == Main.Scene.Office)
+            {
+                Main.setProducerLocation(860,676);
+            }
             Main.currentScene = scene;
         }
 
