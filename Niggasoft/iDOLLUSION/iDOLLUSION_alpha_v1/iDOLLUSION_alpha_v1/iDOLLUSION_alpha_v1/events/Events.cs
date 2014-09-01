@@ -14,11 +14,14 @@ namespace iDOLLUSION_alpha_v1
         private phaseClock.Day day; //when the event is
         private phaseClock.Time time;
 
-        private string eventText; //text for schedule
+        public string eventText; //text for schedule
         public static List<Events> eventList = new List<Events>();
         public int xCoord;
         public int yCoord;
         public Vector2 eCoords = new Vector2();
+        public Vector2 selectionCoords = new Vector2();
+
+        
 
 
         public enum EventType
@@ -57,11 +60,41 @@ namespace iDOLLUSION_alpha_v1
 
               }//end of switch
 //Determine x and y coordinates
-          switch (eDay)
+          switch (eDay) //X
               {
               case phaseClock.Day.Monday:
                       {
-                      xCoord = 75;
+                      xCoord = 110;
+                      break;
+                      }
+              case phaseClock.Day.Tuesday:
+                      {
+                      xCoord = 265;
+                      break;
+                      }
+              case phaseClock.Day.Wednesday:
+                      {
+                      xCoord = 415;
+                      break;
+                      }
+              case phaseClock.Day.Thursday:
+                      {
+                      xCoord = 562;
+                      break;
+                      }
+              case phaseClock.Day.Friday:
+                      {
+                      xCoord = 715;
+                      break;
+                      }
+              case phaseClock.Day.Saturday:
+                      {
+                      xCoord = 860;
+                      break;
+                      }
+              case phaseClock.Day.Sunday:
+                      {
+                      xCoord = 1012;
                       break;
                       }
 
@@ -72,11 +105,26 @@ namespace iDOLLUSION_alpha_v1
                   }
               } //end of switch
 
-          switch (eTime)
-              {
+          switch (eTime) //Y
+              {            
+              case phaseClock.Time.Morning:
+                      {
+                      yCoord = 175;
+                      break;
+                      }
+              case phaseClock.Time.Noon:
+                      {
+                      yCoord = 325;
+                      break;
+                      }
               case phaseClock.Time.Afternoon:
                       {
-                      yCoord = 370;
+                      yCoord = 465;
+                      break;
+                      }
+              case phaseClock.Time.Evening:
+                      {
+                      yCoord = 610;
                       break;
                       }
 
@@ -92,5 +140,12 @@ namespace iDOLLUSION_alpha_v1
 
         }
 
-    }
+
+//PUBLIC METHODS
+        public string getEventText()
+        {
+            return eventText;
+        }
+
+        }//end of class
     }

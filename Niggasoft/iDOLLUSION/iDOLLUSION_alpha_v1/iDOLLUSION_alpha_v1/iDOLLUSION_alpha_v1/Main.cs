@@ -25,7 +25,7 @@ namespace iDOLLUSION_alpha_v1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-      public static  Texture2D background, splash, schedule, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
+      public static  Texture2D background, splash, schedule, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, selectionMarker, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
       public    SpriteFont gameFont;
       public    Rectangle backgroundRect,  mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
         private int screenWidth, screenHeight;
@@ -219,6 +219,7 @@ default:
             mainMap = Content.Load<Texture2D>("images/mainMap/mainMap");
             producer = Content.Load<Texture2D>("images/characters/producer");
             schedule = Content.Load<Texture2D>("images/schedule/schedule");
+            selectionMarker = Content.Load<Texture2D>("images/schedule/selectionMarker");
 //Sounds
             edenEffect = Content.Load<SoundEffect>("sounds/eden");
             techworld = Content.Load<Song>("sounds/techworld");
@@ -246,7 +247,11 @@ default:
                 if (ks.IsKeyDown(Keys.P))
                 {
                    setGameScreen(Scene.Schedule);
-                    new Events(phaseClock.Day.Monday, phaseClock.Time.Afternoon, Events.EventType.LIVE);
+                    new Events(phaseClock.Day.Monday, phaseClock.Time.Morning, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
+                    new Events(phaseClock.Day.Tuesday, phaseClock.Time.Noon, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
+                    new Events(phaseClock.Day.Wednesday, phaseClock.Time.Afternoon, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
+                    new Events(phaseClock.Day.Thursday, phaseClock.Time.Evening, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
+
                 }
                 //movement controls for main map go here
                 if (ks != null)
@@ -269,6 +274,7 @@ default:
                     {
                         producerShift.X+=movementSpeed;
                     }
+
                     Collision.processMovement(producerShift);
                 }
             }
@@ -282,7 +288,10 @@ default:
 
 
  if (Keyboard.GetState().IsKeyDown(Keys.Space)) Exit();
-          
+ if(ks.IsKeyDown(Keys.O))         // TESTING REMOVE LATER
+                    {
+                        phaseClock.spendDay();
+                    }
   if (currentScene == Scene.Splash)
   {
       Splash.upDate();
@@ -290,6 +299,7 @@ default:
   }
             mouseIconRect = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, mouseIcon.Width, mouseIcon.Height); //Mouse icon
            MouseDetection. checkTimeout();
+            phaseClock.upDate();
             base.Update(gameTime);
         }
 
@@ -431,13 +441,15 @@ default:
 
             else if (currentScene == Scene.Schedule) //Schedule draw loop
                 {
-   
                 spriteBatch.Draw(schedule, backgroundRect, Color.White);
-                 foreach (Events events in Events.eventList)
+                spriteBatch.Draw(selectionMarker, new Rectangle(phaseClock.getSelectionCoord()-40, phaseClock.yCoord-50, 209, 170), Color.White);
+
+                 foreach (Events events in Events.eventList)                 //Draw each event onto the schedule
                     {
-                        spriteBatch.DrawString(gameFont, "My First Event!", events.eCoords, Color.Black);
+                        spriteBatch.DrawString(gameFont, events.getEventText(), events.eCoords, Color.Black);
 
                     }
+        
                 }
 ////////////////////////////////////////////////////////////////////////
  
