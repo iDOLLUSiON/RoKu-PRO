@@ -22,3 +22,4 @@ Content\sounds\techworld.wma
 Content\sounds\eden.xnb
 Content\sounds\nocturne.xnb
 Content\images\schedule\selectionMarker.xnb
+Content\fonts\gameFontLarge.xnb

@@ -152,6 +152,12 @@ namespace iDOLLUSION_alpha_v1
             }
             return xCoord;
 
-        }
+        }//end of switch
+
+       public static string getWeek()
+       {
+           string thisWeek = currentWeek+"";
+           return thisWeek;
+       }
     }
 }

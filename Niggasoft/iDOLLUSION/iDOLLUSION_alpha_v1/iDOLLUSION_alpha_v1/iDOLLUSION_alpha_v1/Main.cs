@@ -26,7 +26,7 @@ namespace iDOLLUSION_alpha_v1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
       public static  Texture2D background, splash, schedule, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, selectionMarker, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
-      public    SpriteFont gameFont;
+      public    SpriteFont gameFont, gameFontLarge;
       public    Rectangle backgroundRect,  mouseIconRect, mainmenuRect, buttonExitRect, buttonStartRect, character1Rect, character2Rect, producerRect;
         private int screenWidth, screenHeight;
 
@@ -214,6 +214,7 @@ default:
             mainmenu = Content.Load<Texture2D>("images/mainmenu");
             splash = Content.Load<Texture2D>("images/splash");
             gameFont = Content.Load<SpriteFont>("fonts/gameFont");
+            gameFontLarge = Content.Load<SpriteFont>("fonts/gameFontLarge");
             mouseIcon = Content.Load<Texture2D>("sprites/mouseIcon");
             collisionMap = Content.Load<Texture2D>("images/mainMap/collisionMap");
             mainMap = Content.Load<Texture2D>("images/mainMap/mainMap");
@@ -328,7 +329,6 @@ default:
             {
                 MediaPlayer.Stop();
                 techworld.Dispose();
-
                 spriteBatch.Draw(mainmenu, backgroundRect, Color.White);
                 spriteBatch.Draw(button, buttonExitRect, Color.White);
                 spriteBatch.Draw(button, buttonStartRect, Color.White);
@@ -449,6 +449,7 @@ default:
                         spriteBatch.DrawString(gameFont, events.getEventText(), events.eCoords, Color.Black);
 
                     }
+                spriteBatch.DrawString(gameFontLarge, phaseClock.getWeek(), new Vector2(1220,179), Color.Black);
         
                 }
 ////////////////////////////////////////////////////////////////////////

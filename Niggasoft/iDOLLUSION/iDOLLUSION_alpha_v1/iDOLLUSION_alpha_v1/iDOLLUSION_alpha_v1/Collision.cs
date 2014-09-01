@@ -48,7 +48,7 @@ namespace iDOLLUSION_alpha_v1
                     return;
                 }
 //movement won't cause exception
-                futureX = (int) futureFloatX;
+                futureX = (int) futureFloatX; //cast to int
                 futureY = (int) futureFloatY;
                 if (checkCollision(futureX, futureY))  //check if coords are passable or not
                 {

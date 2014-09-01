@@ -62,7 +62,7 @@ namespace iDOLLUSION_alpha_v1
 //Determine x and y coordinates
           switch (eDay) //X
               {
-              case phaseClock.Day.Monday:
+              case phaseClock.Day.Monday:  
                       {
                       xCoord = 110;
                       break;
