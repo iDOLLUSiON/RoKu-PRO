@@ -1,0 +1,9 @@
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\obj\x86\Debug\Echelon.csprojResolveAssemblyReference.cache
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\bin\x86\Debug\Echelon.exe
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\bin\x86\Debug\Echelon.pdb
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\obj\x86\Debug\Echelon.exe
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\obj\x86\Debug\Echelon.pdb
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\bin\x86\Debug\Content\sprites\samus_movement\l\l0.xnb
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\bin\x86\Debug\Content\sprites\samus_movement\r\r0.xnb
+C:\Users\Xnenai\Desktop\Echelon\Echelon\Echelon\Echelon\bin\x86\Debug\Content\sprites\samus_movement\neutral.xnb

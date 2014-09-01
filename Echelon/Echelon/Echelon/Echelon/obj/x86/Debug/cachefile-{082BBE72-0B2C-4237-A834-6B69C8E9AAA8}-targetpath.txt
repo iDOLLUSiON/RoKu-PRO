@@ -1,0 +1,3 @@
+Content\sprites\samus_movement\l\l0.xnb
+Content\sprites\samus_movement\r\r0.xnb
+Content\sprites\samus_movement\neutral.xnb
