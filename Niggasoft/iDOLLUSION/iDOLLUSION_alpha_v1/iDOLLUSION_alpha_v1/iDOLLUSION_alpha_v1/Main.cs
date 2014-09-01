@@ -36,7 +36,6 @@ namespace iDOLLUSION_alpha_v1
 
 
 
-
 //determines the direction of the arrows on splash screen. Needs cleaning. Move to seperate class?
          int directionSilver = 1;
          int directionGold = 1;
@@ -247,6 +246,7 @@ default:
                 if (ks.IsKeyDown(Keys.P))
                 {
                    setGameScreen(Scene.Schedule);
+                    new Events(phaseClock.Day.Monday, phaseClock.Time.Afternoon, Events.EventType.LIVE);
                 }
                 //movement controls for main map go here
                 if (ks != null)
@@ -429,9 +429,13 @@ default:
                 edenEffect.Dispose();
                 }
 
-            else if (currentScene == Scene.Schedule) //MAIN MAP DRAW LOOP
+            else if (currentScene == Scene.Schedule) //Schedule draw loop
                 {
-                    
+                    foreach (Events events in Events.eventList)
+                    {
+                        spriteBatch.DrawString(gameFont, "My First Event!", events.eCoords, Color.Black);
+
+                    }
                 spriteBatch.Draw(schedule, backgroundRect, Color.White);
                 }
 ////////////////////////////////////////////////////////////////////////

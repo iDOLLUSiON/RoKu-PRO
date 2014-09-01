@@ -12,11 +12,36 @@ namespace iDOLLUSION_alpha_v1.characters
             private string idolName;
             private Regions.Region homeRegion;
             private int age;
-            private bool isUnitMember;
-            //   private Units.Unit unit;
+            private bool isUnitMember = false;
+            private Units unit = null;
+//stats
+            //unit 
             private int determination;
             private int unity;
+            private int leadership;
+            //skills
+            private int danceSkill;
+            private int singSkill;
+            private int stagePresence;
+            //relationship
+            private int loyalty;
+            private int tact;
+            private int image;
+            private int popularity;
 
+//modifiers
+            private bool isInjured = false;
+
+            private  enum InjuryType
+            {
+                vocalFatigue,
+                muscleFatigue,
+                sick,
+                NONE
+            }
+            private InjuryType injury = InjuryType.NONE;
+            private int injuryTime = 0;
+            
 
 //Level stuff
             private enum IdolLevel
@@ -32,6 +57,8 @@ namespace iDOLLUSION_alpha_v1.characters
             private int idolLevelInt = 1;
             private int idolPoints = 0;
             private int idolPointsNeeded = 500;
+
+
 
             private const String E = "E-Rank";
             private const String D = "D-Rank";
@@ -100,6 +127,20 @@ namespace iDOLLUSION_alpha_v1.characters
             public int getUnity(Idol idol)
             {
                 return this.unity;
+            }
+
+            public string getName(Idol idol)
+            {
+                return this.idolName;
+            }
+
+            public Units getUnit(Idol idol)
+            {
+                if (!this.isUnitMember)
+                {
+                    return null;
+                }
+                return this.unit;
             }
 
 

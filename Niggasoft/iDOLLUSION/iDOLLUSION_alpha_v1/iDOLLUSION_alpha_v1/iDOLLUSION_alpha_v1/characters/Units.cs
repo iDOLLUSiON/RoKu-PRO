@@ -45,10 +45,7 @@ namespace iDOLLUSION_alpha_v1.characters
                 //static
                 unitLeaders.Add(idol1); //add "idol1" to the list of unitleaders
                 idolsInUnits.Add(idol1);
-                idolsInUnits.Add(idol2);
-
-                
-
+                idolsInUnits.Add(idol2);            
 
             }
 
@@ -73,8 +70,6 @@ namespace iDOLLUSION_alpha_v1.characters
                 idolsInUnits.Add(idol1);
                 idolsInUnits.Add(idol2);
                 idolsInUnits.Add(idol3);
-
-
             }
 
             public Units(Idol idol1, Idol idol2, Idol idol3, Idol idol4)
@@ -104,8 +99,8 @@ namespace iDOLLUSION_alpha_v1.characters
 
 
 
-
-            private int generateUnityValue(List<Idol> memberlist)
+//Private methods
+     private int generateUnityValue(List<Idol> memberlist)
             {
                 List<int> unityVals = new List<int>(); //declares a new list of type int to contain each idols unity value
                 foreach (Idol idol in memberlist)  //gets the unity value of each idol
@@ -116,8 +111,6 @@ namespace iDOLLUSION_alpha_v1.characters
                 return unityValsInt;
 
             } 
-
-
 
 
 //PUBLIC METHODS
@@ -148,5 +141,5 @@ namespace iDOLLUSION_alpha_v1.characters
         
 
 
-    }
-    }
+    } //class
+ } //namespace

@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="characters\Companies.cs" />
     <Compile Include="characters\Units.cs" />
     <Compile Include="characters\Producer.cs" />
     <Compile Include="characters\Idol.cs" />
@@ -136,7 +137,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="money\Funds.cs" />
-    <Compile Include="events\event1.cs" />
+    <Compile Include="events\Events.cs" />
     <Compile Include="phaseClock.cs" />
     <Compile Include="scenes\Splash.cs" />
     <Compile Include="scenes\CharacterSelection.cs" />
