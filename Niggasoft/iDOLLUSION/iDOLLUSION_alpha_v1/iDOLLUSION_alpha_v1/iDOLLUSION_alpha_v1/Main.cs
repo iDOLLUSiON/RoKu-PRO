@@ -431,12 +431,13 @@ default:
 
             else if (currentScene == Scene.Schedule) //Schedule draw loop
                 {
-                    foreach (Events events in Events.eventList)
+   
+                spriteBatch.Draw(schedule, backgroundRect, Color.White);
+                 foreach (Events events in Events.eventList)
                     {
                         spriteBatch.DrawString(gameFont, "My First Event!", events.eCoords, Color.Black);
 
                     }
-                spriteBatch.Draw(schedule, backgroundRect, Color.White);
                 }
 ////////////////////////////////////////////////////////////////////////
  
