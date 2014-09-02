@@ -22,6 +22,7 @@ Content\sounds\techworld.wma
 Content\sounds\eden.xnb
 Content\sounds\nocturne.xnb
 Content\images\schedule\selectionMarker.xnb
+Content\fonts\gameFontLarge.xnb
 Content\images\office\office.xnb
 Content\images\office\officeCollisionMap.xnb
-Content\fonts\gameFontLarge.xnb
+Content\images\testZone.xnb

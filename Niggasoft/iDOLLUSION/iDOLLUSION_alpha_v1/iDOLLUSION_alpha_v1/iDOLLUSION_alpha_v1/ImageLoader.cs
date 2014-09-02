@@ -11,7 +11,7 @@ namespace iDOLLUSION_alpha_v1
 {
     class ImageLoader
     {
-        public static Texture2D background, splash, schedule, office, officeCollisionMap, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, selectionMarker, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
+        public static Texture2D background, splash, testZone, testZoneCollision, schedule, office, officeCollisionMap, silverButton, goldButton, silverButtonR, goldButtonR, mouseIcon, selectionMarker, mainmenu, button, sparkle, characterSelection, characterSelected, characterUnselected, mainMap, collisionMap, producer;
         public ImageLoader(ContentManager content)
         {
             content.RootDirectory = "Content";
@@ -35,6 +35,10 @@ namespace iDOLLUSION_alpha_v1
             producer = content.Load<Texture2D>("images/characters/producer");
             schedule = content.Load<Texture2D>("images/schedule/schedule");
             selectionMarker = content.Load<Texture2D>("images/schedule/selectionMarker");
+            testZone = content.Load<Texture2D>("images/testZone");
+            testZoneCollision = content.Load<Texture2D>("images/testZone");
+
+                
         }
     }
 }

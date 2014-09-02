@@ -112,10 +112,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="characters\MainCharacter.cs" />
     <Compile Include="characters\Companies.cs" />
     <Compile Include="characters\Units.cs" />
-    <Compile Include="characters\Producer.cs" />
-    <Compile Include="characters\Idol.cs" />
+    <Compile Include="characters\MainCharacters\Producer.cs" />
+    <Compile Include="characters\MainCharacters\Idol.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +124,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Regions.cs" />
+    <Compile Include="scenes\email\Messages.cs" />
+    <Compile Include="scenes\email\IdolInbox.cs" />
+    <Compile Include="scenes\Stage.cs" />
     <Compile Include="Utility\Contents.cs" />
     <Compile Include="Utility\MouseDetection.cs" />
     <Compile Include="Music.cs" />

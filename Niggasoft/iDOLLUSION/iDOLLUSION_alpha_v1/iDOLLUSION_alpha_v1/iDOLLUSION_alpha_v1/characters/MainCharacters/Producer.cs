@@ -5,7 +5,7 @@ using System.Text;
 
 namespace iDOLLUSION_alpha_v1.characters
     {
-    class Producer
+    class Producer : MainCharacter
         {
 //This class just contains stats for PRODUCERSAN(!)
 

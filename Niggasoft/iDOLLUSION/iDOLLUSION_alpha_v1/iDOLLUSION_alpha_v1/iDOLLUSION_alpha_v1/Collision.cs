@@ -14,23 +14,26 @@ namespace iDOLLUSION_alpha_v1
     {
 
         private const uint
-             passable = 4280744959,
-            impassable = 4278190080,
-            building1 = 4294901760,
-            building2 = 4278190335;
+            passable = 0,
+            black = 4278190080,
+            green = 4278255360,
+            orange = 4278217471,
+            yellow = 4278245631,
+            blue = 4294901760,
+            red = 4278190335;
 
        private  enum CollisionTypes : uint
        {
-        Passable = 4280744959,
-        Impassble = 4278190080,
-        Building1 = 4294901760,
-        Building2 = 4278190335,
+        Passable = passable,
+        Impassable = black,
+        Blue = blue,
+        Red = red,
+        Green = green,
+        Yellow = yellow,
+        Orange = orange
        };
 
        static CollisionTypes currentCollision = new CollisionTypes();
-
-
-
 
 
         public static void processMovement(Vector2 shift )
@@ -68,7 +71,7 @@ namespace iDOLLUSION_alpha_v1
        {
 uint currentArea = 0; 
 uint[] myUint = new uint[1];
-        if (Main.currentScene == Main.Scene.MainMap)
+        if (Main.currentScene == Main.Scene.MainMap)  //each scene needs a loop with renames ofr its own collision map
         {
             if (x >= 0 && x < ImageLoader.collisionMap.Width && y >= 0 && y < ImageLoader.collisionMap.Height)
             {
@@ -84,6 +87,14 @@ uint[] myUint = new uint[1];
                 currentArea = myUint[0];
             }
         }
+        else if (Main.currentScene == Main.Scene.Office)
+        {
+            if (x >= 0 && x < ImageLoader.testZone.Width && y >= 0 && y < ImageLoader.testZone.Height)
+            {
+                ImageLoader.officeCollisionMap.GetData(0, new Rectangle(x + 25, y + 25, 1, 1), myUint, 0, 1);
+                currentArea = myUint[0];
+            }
+        }
         switch (currentArea)
         {
             case (passable):
@@ -92,21 +103,39 @@ uint[] myUint = new uint[1];
                 processCollision();
                 return(true);
             }
-            case(impassable):
+            case(black):
             {
-                currentCollision = CollisionTypes.Impassble;
+                currentCollision = CollisionTypes.Impassable;
                 processCollision();
                 return(false);
             }
-            case(building1):
+            case(yellow):
             {
-                currentCollision = CollisionTypes.Building1;
+                currentCollision = CollisionTypes.Yellow;
                 processCollision();
                 return(true);
             }
-            case(building2):
+            case(orange):
             {
-                currentCollision = CollisionTypes.Building2;
+                currentCollision = CollisionTypes.Orange;
+                processCollision();
+                return(true);
+            }
+            case(green):
+            {
+                currentCollision = CollisionTypes.Green;
+                processCollision();
+                return(true);
+            }
+            case(red):
+            {
+                currentCollision = CollisionTypes.Red;
+                processCollision();
+                return(true);
+            }
+            case(blue):
+            {
+                currentCollision = CollisionTypes.Blue;
                 processCollision();
                 return(true);
             }
@@ -123,13 +152,260 @@ uint[] myUint = new uint[1];
         private static void processCollision()
             //This doesn't need to be a seperate method, but I think it's neater, and performance is negligible since its in one class
         {
-            switch (currentCollision)
+            switch (Main.currentScene)
             {
-                case CollisionTypes.Building1:
+                case Main.Scene.Home:
                 {
-                    setScene(Main.Scene.Office);
+                    switch (currentCollision)
+                    {
+                        case (CollisionTypes.Passable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Impassable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Blue):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Red):
+                        {
+                            break;
+                        }   
+                        case (CollisionTypes.Green):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Orange):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Yellow):
+                        {
+                            break;
+                        }
+
+                    }
                     break;
-                }
+                }// end
+                case Main.Scene.Inbox:
+                {
+                    switch (currentCollision)
+                    {
+                        case (CollisionTypes.Passable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Impassable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Blue):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Red):
+                        {
+                            break;
+                        }   
+                        case (CollisionTypes.Green):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Orange):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Yellow):
+                        {
+                            break;
+                        }
+
+                    }
+                    break;
+                }// end
+                case Main.Scene.MainMap:
+                {
+                    switch (currentCollision)
+                    {
+                        case (CollisionTypes.Passable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Impassable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Blue):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Red):
+                        {
+                            break;
+                        }   
+                        case (CollisionTypes.Green):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Orange):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Yellow):
+                        {
+                            break;
+                        }
+
+                    }
+                    break;
+                }// end
+                case Main.Scene.Office:
+                {
+                    switch (currentCollision)
+                    {
+                        case (CollisionTypes.Passable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Impassable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Blue):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Red):
+                        {
+                            break;
+                        }   
+                        case (CollisionTypes.Green):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Orange):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Yellow):
+                        {
+                            break;
+                        }
+
+                    }
+                    break;
+                }// end
+                case Main.Scene.Schedule:
+                {
+                    switch (currentCollision)
+                    {
+                        case (CollisionTypes.Passable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Impassable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Blue):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Red):
+                        {
+                            break;
+                        }   
+                        case (CollisionTypes.Green):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Orange):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Yellow):
+                        {
+                            break;
+                        }
+
+                    }
+                    break;
+                }// end
+                case Main.Scene.Studio:
+                {
+                    switch (currentCollision)
+                    {
+                        case (CollisionTypes.Passable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Impassable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Blue):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Red):
+                        {
+                            break;
+                        }   
+                        case (CollisionTypes.Green):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Orange):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Yellow):
+                        {
+                            break;
+                        }
+
+                    }
+                    break;
+                }// end
+                case Main.Scene.Splash:
+                {
+                    switch (currentCollision)
+                    {
+                        case (CollisionTypes.Passable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Impassable):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Blue):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Red):
+                        {
+                            break;
+                        }   
+                        case (CollisionTypes.Green):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Orange):
+                        {
+                            break;
+                        }
+                        case (CollisionTypes.Yellow):
+                        {
+                            break;
+                        }
+
+                    }
+                    break;
+                }// end
                 default:
                 {
                     return;
@@ -147,7 +423,6 @@ uint[] myUint = new uint[1];
 
         public static void setScene(Main.Scene scene)
         {
-            resetProducerLocation();
             if (scene == Main.Scene.Office)
             {
                 Main.setProducerLocation(860,676);

@@ -238,6 +238,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="images\office\officeCollisionMap.png">
+      <Name>officeCollisionMap</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="images\office\office.png">
       <Name>office</Name>
       <Importer>TextureImporter</Importer>
@@ -245,8 +252,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\office\officeCollisionMap.png">
-      <Name>officeCollisionMap</Name>
+    <Compile Include="images\testZone.png">
+      <Name>testZone</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

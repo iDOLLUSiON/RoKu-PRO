@@ -63,10 +63,13 @@ namespace iDOLLUSION_alpha_v1
             Home, //vvv are unimplemented thus far
             Office,
             Studio,
-            Schedule
+            Schedule,
+            Inbox,
+            TESTZONE
         };
 
     public static Scene currentScene = Scene.Splash; //This sets the first screen displayed as the Splash screen
+    public static Scene lastScene;
 
 
         public enum Idols  //Pick a character, any character. These are just placeholder names
@@ -191,7 +194,7 @@ default:
             edenEffect = Content.Load<SoundEffect>("sounds/eden");
             techworld = Content.Load<Song>("sounds/techworld");
 
-
+        
 
 
 
@@ -208,12 +211,30 @@ default:
        var mouseState = Mouse.GetState();              // use mouseState instead of Mouse.GetState() from here on out
         Point mousePosition = new Point(mouseState.X, mouseState.Y);
 
+            string sColorval = "";
+            uint[] myUint = new uint[1];
+if (ms.X >= 0 && ms.X < 1280 && ms.Y >= 0 && ms.Y < 720)  // DISPLAYS color value of collision map
+            {
+                ImageLoader.testZone.GetData(0, new Rectangle(ms.X, ms.Y, 1, 1), myUint, 0, 1);
+                sColorval = myUint[0].ToString();
+            }
+            Window.Title = ms.X.ToString() + "," + ms.Y.ToString() + " - " + sColorval;
+
 
             if (currentScene == Scene.MainMap || currentScene == Scene.Office)
             {
                 if (ks.IsKeyDown(Keys.P))
                 {
+                if (currentScene == Scene.MainMap)
+                    {
+                    lastScene = Scene.MainMap;
+                    }
+                else
+                    {
+                    lastScene = Scene.Office;
+                    }
                    setGameScreen(Scene.Schedule);
+                   // Collision.setScene(Scene.Office);
                     new Events(phaseClock.Day.Monday, phaseClock.Time.Morning, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
                     new Events(phaseClock.Day.Tuesday, phaseClock.Time.Noon, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
                     new Events(phaseClock.Day.Wednesday, phaseClock.Time.Afternoon, Events.EventType.AUDITION);  //TESTING REMOVE LATER REMOVE LATER
@@ -244,11 +265,19 @@ default:
                     Collision.processMovement(producerShift);
                 }
             }
+
+            if (currentScene == Scene.Office)
+            {
+                if (MouseDetection.clicked())
+                {
+                   Collision.processMovement(new Vector2(mouseState.X, mouseState.Y));
+                }
+            }
             if (currentScene == Scene.Schedule)
             {
                 if (MouseDetection.clicked())
                 {
-                   setGameScreen(Scene.MainMap);
+                   Collision.setScene(lastScene);
                 }
             }
 
@@ -412,23 +441,23 @@ default:
                  foreach (Events events in Events.eventList)                 //Draw each event onto the schedule
                     {
                         spriteBatch.DrawString(gameFont, events.getEventText(), events.eCoords, Color.Black);
-
                     }
                 spriteBatch.DrawString(gameFontLarge, phaseClock.getWeek(), new Vector2(1220,179), Color.Black);
         
                 }
-            else if (currentScene == Scene.Office) //MAIN MAP DRAW LOOP
+            else if (currentScene == Scene.Office) //Office DRAW LOOP
                 {
-                    
-                //draw main navigational map and invisible collision map.  Remember to go in order [back to front}
-                    spriteBatch.Draw(ImageLoader.officeCollisionMap, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                 spriteBatch.Draw(ImageLoader.officeCollisionMap, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
                     spriteBatch.Draw(ImageLoader.office, backgroundRect, Color.White);
                     spriteBatch.Draw(ImageLoader.producer, new Rectangle(producerX, producerY, 40, 40), Color.White);
                 edenEffect.Dispose();
                 }
+            else if (currentScene == Scene.TESTZONE) //Office DRAW LOOP
+                {
+                 spriteBatch.Draw(ImageLoader.testZoneCollision, new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    spriteBatch.Draw(ImageLoader.testZone, backgroundRect, Color.White);
+                }
 
-
-////////////////////////////////////////////////////////////////////////
  
 //ALWAYS DRAW LOOP
             spriteBatch.Draw(ImageLoader.mouseIcon, mouseIconRect, Color.White);

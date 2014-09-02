@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace iDOLLUSION_alpha_v1.characters
     {
-        internal class Idol
+         class Idol : MainCharacter
         {
 
             private string idolName;
@@ -113,7 +114,7 @@ namespace iDOLLUSION_alpha_v1.characters
 
             public Idol(string name, Regions.Region home)
             {
-
+                
             }
 
 
