@@ -124,8 +124,11 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Regions.cs" />
+    <Compile Include="scenes\MainMenuDir\Buttons\Class1.cs" />
+    <Compile Include="scenes\MainMenuDir\MainMenu.cs" />
     <Compile Include="scenes\email\Messages.cs" />
     <Compile Include="scenes\email\IdolInbox.cs" />
+    <Compile Include="scenes\MainMenuDir\MainMenuButtons.cs" />
     <Compile Include="scenes\Stage.cs" />
     <Compile Include="Utility\Contents.cs" />
     <Compile Include="Utility\MouseDetection.cs" />

@@ -17,18 +17,11 @@ namespace iDOLLUSION_alpha_v1.characters
             private Units unit = null;
 //stats
             //unit 
-            private int determination;
-            private int unity;
-            private int leadership;
-            //skills
-            private int danceSkill;
-            private int singSkill;
-            private int stagePresence;
-            //relationship
-            private int loyalty;
-            private int tact;
-            private int image;
-            private int popularity;
+            private int determination, unity, leadership;
+            //practical skills
+            private int danceSkill, singSkill, stagePresence;
+            //social
+            private int loyalty, tact, image, popularity, happiness;
             private Companies company;
 
 //modifiers
